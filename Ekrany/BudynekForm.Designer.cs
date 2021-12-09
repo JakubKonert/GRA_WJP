@@ -29,6 +29,7 @@ namespace GRA_WJP.Ekrany
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BudynekForm));
             this.NazwaBudynkuLabel = new System.Windows.Forms.Label();
             this.LevelBudynkuButton = new System.Windows.Forms.Label();
             this.PojemnoscBudynkuLabel = new System.Windows.Forms.Label();
@@ -105,6 +106,8 @@ namespace GRA_WJP.Ekrany
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Wheat;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(682, 553);
             this.ControlBox = false;
             this.Controls.Add(this.WyjscieBudynekButton);
@@ -114,6 +117,7 @@ namespace GRA_WJP.Ekrany
             this.Controls.Add(this.LevelBudynkuButton);
             this.Controls.Add(this.NazwaBudynkuLabel);
             this.Font = new System.Drawing.Font("Montserrat Subrayada", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "BudynekForm";
             this.ShowIcon = false;
