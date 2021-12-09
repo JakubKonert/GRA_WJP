@@ -1,22 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GRA_WJP.Klasy
 {
     class Wynik
     {
-        public Wynik(string nazwa, DateTime data, int ktoraTura)
+        public Wynik(string Nazwa, DateTime Data, int KtoraTura)
         {
-            this.nazwa = nazwa;
-            this.data = data;
-            this.ktoraTura = ktoraTura;
+            this.Nazwa = Nazwa;
+            this.Data = Data;
+            this.KtoraTura = KtoraTura;
         }
 
-        public String nazwa;
-        public DateTime data;
-        public int ktoraTura;
+        // #enkapsulacja, dane jakie mają być zapisywane podczas zapisu wyniku (tylko dla zwycięstwa)
+        private String Nazwa { get; }
+        private DateTime Data { get; }
+        private int KtoraTura { get; }
+
+        public int KtoraTuraNumer() => KtoraTura;
+        public String JakaNazwa() => Nazwa;
+        public DateTime JakaData() => Data;
     }
 }

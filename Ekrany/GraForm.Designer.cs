@@ -31,16 +31,16 @@ namespace GRA_WJP.Ekrany
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GraForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.Tura = new System.Windows.Forms.Label();
-            this.Drewno = new System.Windows.Forms.Button();
-            this.Zloto = new System.Windows.Forms.Button();
-            this.Populacja = new System.Windows.Forms.Label();
-            this.Jedzenie = new System.Windows.Forms.Button();
-            this.Tartak = new System.Windows.Forms.Button();
-            this.Farma = new System.Windows.Forms.Button();
-            this.Dom = new System.Windows.Forms.Button();
-            this.Kopalnia = new System.Windows.Forms.Button();
-            this.Koniec_tury = new System.Windows.Forms.Button();
+            this.TuraLabel = new System.Windows.Forms.Label();
+            this.DrewnoButton = new System.Windows.Forms.Button();
+            this.ZlotoButton = new System.Windows.Forms.Button();
+            this.PopulacjaLabel = new System.Windows.Forms.Label();
+            this.JedzenieButton = new System.Windows.Forms.Button();
+            this.TartakButton = new System.Windows.Forms.Button();
+            this.FarmaButton = new System.Windows.Forms.Button();
+            this.DomButton = new System.Windows.Forms.Button();
+            this.KopalniaButton = new System.Windows.Forms.Button();
+            this.KoniecTuryButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,11 +53,11 @@ namespace GRA_WJP.Ekrany
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Controls.Add(this.Tura, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.Drewno, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.Zloto, 4, 0);
-            this.tableLayoutPanel1.Controls.Add(this.Populacja, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.Jedzenie, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.TuraLabel, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.DrewnoButton, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.ZlotoButton, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.PopulacjaLabel, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.JedzenieButton, 2, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(90, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
@@ -66,138 +66,138 @@ namespace GRA_WJP.Ekrany
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
-            // Tura
+            // TuraLabel
             // 
-            this.Tura.AutoSize = true;
-            this.Tura.Font = new System.Drawing.Font("Montserrat Subrayada", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tura.Location = new System.Drawing.Point(3, 0);
-            this.Tura.Name = "Tura";
-            this.Tura.Size = new System.Drawing.Size(73, 24);
-            this.Tura.TabIndex = 1;
-            this.Tura.Text = "Tura:";
+            this.TuraLabel.AutoSize = true;
+            this.TuraLabel.Font = new System.Drawing.Font("Montserrat Subrayada", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TuraLabel.Location = new System.Drawing.Point(3, 0);
+            this.TuraLabel.Name = "TuraLabel";
+            this.TuraLabel.Size = new System.Drawing.Size(73, 24);
+            this.TuraLabel.TabIndex = 1;
+            this.TuraLabel.Text = "Tura:";
             // 
-            // Drewno
+            // DrewnoButton
             // 
-            this.Drewno.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Drewno.Font = new System.Drawing.Font("Montserrat Subrayada", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Drewno.Location = new System.Drawing.Point(613, 3);
-            this.Drewno.Name = "Drewno";
-            this.Drewno.Size = new System.Drawing.Size(234, 69);
-            this.Drewno.TabIndex = 3;
-            this.Drewno.Text = "Drewno:";
-            this.Drewno.UseVisualStyleBackColor = true;
-            this.Drewno.Click += new System.EventHandler(this.Drewno_Click);
+            this.DrewnoButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.DrewnoButton.Font = new System.Drawing.Font("Montserrat Subrayada", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DrewnoButton.Location = new System.Drawing.Point(613, 3);
+            this.DrewnoButton.Name = "DrewnoButton";
+            this.DrewnoButton.Size = new System.Drawing.Size(234, 69);
+            this.DrewnoButton.TabIndex = 3;
+            this.DrewnoButton.Text = "Drewno:";
+            this.DrewnoButton.UseVisualStyleBackColor = true;
+            this.DrewnoButton.Click += new System.EventHandler(this.Drewno_Click);
             // 
-            // Zloto
+            // ZlotoButton
             // 
-            this.Zloto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Zloto.Font = new System.Drawing.Font("Montserrat Subrayada", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Zloto.Location = new System.Drawing.Point(858, 3);
-            this.Zloto.Name = "Zloto";
-            this.Zloto.Size = new System.Drawing.Size(235, 69);
-            this.Zloto.TabIndex = 4;
-            this.Zloto.Text = "Złoto:";
-            this.Zloto.UseVisualStyleBackColor = true;
-            this.Zloto.Click += new System.EventHandler(this.Zloto_Click);
+            this.ZlotoButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ZlotoButton.Font = new System.Drawing.Font("Montserrat Subrayada", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ZlotoButton.Location = new System.Drawing.Point(858, 3);
+            this.ZlotoButton.Name = "ZlotoButton";
+            this.ZlotoButton.Size = new System.Drawing.Size(235, 69);
+            this.ZlotoButton.TabIndex = 4;
+            this.ZlotoButton.Text = "Złoto:";
+            this.ZlotoButton.UseVisualStyleBackColor = true;
+            this.ZlotoButton.Click += new System.EventHandler(this.Zloto_Click);
             // 
-            // Populacja
+            // PopulacjaLabel
             // 
-            this.Populacja.AutoSize = true;
-            this.Populacja.Font = new System.Drawing.Font("Montserrat Subrayada", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Populacja.Location = new System.Drawing.Point(123, 0);
-            this.Populacja.Name = "Populacja";
-            this.Populacja.Size = new System.Drawing.Size(143, 24);
-            this.Populacja.TabIndex = 5;
-            this.Populacja.Text = "Populacja:";
+            this.PopulacjaLabel.AutoSize = true;
+            this.PopulacjaLabel.Font = new System.Drawing.Font("Montserrat Subrayada", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PopulacjaLabel.Location = new System.Drawing.Point(123, 0);
+            this.PopulacjaLabel.Name = "PopulacjaLabel";
+            this.PopulacjaLabel.Size = new System.Drawing.Size(143, 24);
+            this.PopulacjaLabel.TabIndex = 5;
+            this.PopulacjaLabel.Text = "Populacja:";
             // 
-            // Jedzenie
+            // JedzenieButton
             // 
-            this.Jedzenie.BackColor = System.Drawing.Color.Wheat;
-            this.Jedzenie.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Jedzenie.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Jedzenie.Font = new System.Drawing.Font("Montserrat Subrayada", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Jedzenie.ForeColor = System.Drawing.Color.Black;
-            this.Jedzenie.Location = new System.Drawing.Point(368, 3);
-            this.Jedzenie.Name = "Jedzenie";
-            this.Jedzenie.Size = new System.Drawing.Size(234, 69);
-            this.Jedzenie.TabIndex = 2;
-            this.Jedzenie.Text = "Jedzenie:";
-            this.Jedzenie.UseVisualStyleBackColor = false;
-            this.Jedzenie.Click += new System.EventHandler(this.Jedzenie_Click);
+            this.JedzenieButton.BackColor = System.Drawing.Color.Wheat;
+            this.JedzenieButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.JedzenieButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.JedzenieButton.Font = new System.Drawing.Font("Montserrat Subrayada", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.JedzenieButton.ForeColor = System.Drawing.Color.Black;
+            this.JedzenieButton.Location = new System.Drawing.Point(368, 3);
+            this.JedzenieButton.Name = "JedzenieButton";
+            this.JedzenieButton.Size = new System.Drawing.Size(234, 69);
+            this.JedzenieButton.TabIndex = 2;
+            this.JedzenieButton.Text = "Jedzenie:";
+            this.JedzenieButton.UseVisualStyleBackColor = false;
+            this.JedzenieButton.Click += new System.EventHandler(this.Jedzenie_Click);
             // 
-            // Tartak
+            // TartakButton
             // 
-            this.Tartak.BackColor = System.Drawing.Color.Transparent;
-            this.Tartak.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Tartak.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Tartak.Font = new System.Drawing.Font("Montserrat Subrayada", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tartak.ForeColor = System.Drawing.Color.Wheat;
-            this.Tartak.Location = new System.Drawing.Point(12, 233);
-            this.Tartak.Name = "Tartak";
-            this.Tartak.Size = new System.Drawing.Size(210, 241);
-            this.Tartak.TabIndex = 1;
-            this.Tartak.Text = "Tartak";
-            this.Tartak.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Tartak.UseVisualStyleBackColor = false;
-            this.Tartak.Click += new System.EventHandler(this.Tartak_Click);
+            this.TartakButton.BackColor = System.Drawing.Color.Transparent;
+            this.TartakButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.TartakButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.TartakButton.Font = new System.Drawing.Font("Montserrat Subrayada", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TartakButton.ForeColor = System.Drawing.Color.Wheat;
+            this.TartakButton.Location = new System.Drawing.Point(12, 233);
+            this.TartakButton.Name = "TartakButton";
+            this.TartakButton.Size = new System.Drawing.Size(210, 241);
+            this.TartakButton.TabIndex = 1;
+            this.TartakButton.Text = "Tartak";
+            this.TartakButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.TartakButton.UseVisualStyleBackColor = false;
+            this.TartakButton.Click += new System.EventHandler(this.Tartak_Click);
             // 
-            // Farma
+            // FarmaButton
             // 
-            this.Farma.BackColor = System.Drawing.Color.Transparent;
-            this.Farma.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Farma.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Farma.Font = new System.Drawing.Font("Montserrat Subrayada", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Farma.ForeColor = System.Drawing.Color.Wheat;
-            this.Farma.Location = new System.Drawing.Point(447, 124);
-            this.Farma.Name = "Farma";
-            this.Farma.Size = new System.Drawing.Size(206, 248);
-            this.Farma.TabIndex = 2;
-            this.Farma.Text = "Farma";
-            this.Farma.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Farma.UseVisualStyleBackColor = false;
-            this.Farma.Click += new System.EventHandler(this.Farma_Click);
+            this.FarmaButton.BackColor = System.Drawing.Color.Transparent;
+            this.FarmaButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.FarmaButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.FarmaButton.Font = new System.Drawing.Font("Montserrat Subrayada", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FarmaButton.ForeColor = System.Drawing.Color.Wheat;
+            this.FarmaButton.Location = new System.Drawing.Point(447, 124);
+            this.FarmaButton.Name = "FarmaButton";
+            this.FarmaButton.Size = new System.Drawing.Size(206, 248);
+            this.FarmaButton.TabIndex = 2;
+            this.FarmaButton.Text = "Farma";
+            this.FarmaButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.FarmaButton.UseVisualStyleBackColor = false;
+            this.FarmaButton.Click += new System.EventHandler(this.Farma_Click);
             // 
-            // Dom
+            // DomButton
             // 
-            this.Dom.BackColor = System.Drawing.Color.Transparent;
-            this.Dom.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Dom.Font = new System.Drawing.Font("Montserrat Subrayada", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Dom.ForeColor = System.Drawing.Color.Wheat;
-            this.Dom.Location = new System.Drawing.Point(704, 259);
-            this.Dom.Name = "Dom";
-            this.Dom.Size = new System.Drawing.Size(251, 262);
-            this.Dom.TabIndex = 3;
-            this.Dom.Text = "Dom";
-            this.Dom.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Dom.UseVisualStyleBackColor = false;
-            this.Dom.Click += new System.EventHandler(this.Dom_Click);
+            this.DomButton.BackColor = System.Drawing.Color.Transparent;
+            this.DomButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.DomButton.Font = new System.Drawing.Font("Montserrat Subrayada", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DomButton.ForeColor = System.Drawing.Color.Wheat;
+            this.DomButton.Location = new System.Drawing.Point(704, 259);
+            this.DomButton.Name = "DomButton";
+            this.DomButton.Size = new System.Drawing.Size(251, 262);
+            this.DomButton.TabIndex = 3;
+            this.DomButton.Text = "Dom";
+            this.DomButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.DomButton.UseVisualStyleBackColor = false;
+            this.DomButton.Click += new System.EventHandler(this.Dom_Click);
             // 
-            // Kopalnia
+            // KopalniaButton
             // 
-            this.Kopalnia.BackColor = System.Drawing.Color.Transparent;
-            this.Kopalnia.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Kopalnia.Font = new System.Drawing.Font("Montserrat Subrayada", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Kopalnia.ForeColor = System.Drawing.Color.Wheat;
-            this.Kopalnia.Location = new System.Drawing.Point(1017, 424);
-            this.Kopalnia.Name = "Kopalnia";
-            this.Kopalnia.Size = new System.Drawing.Size(233, 222);
-            this.Kopalnia.TabIndex = 4;
-            this.Kopalnia.Text = "Kopalnia";
-            this.Kopalnia.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Kopalnia.UseVisualStyleBackColor = false;
-            this.Kopalnia.Click += new System.EventHandler(this.Kopalnia_Click);
+            this.KopalniaButton.BackColor = System.Drawing.Color.Transparent;
+            this.KopalniaButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.KopalniaButton.Font = new System.Drawing.Font("Montserrat Subrayada", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KopalniaButton.ForeColor = System.Drawing.Color.Wheat;
+            this.KopalniaButton.Location = new System.Drawing.Point(1017, 424);
+            this.KopalniaButton.Name = "KopalniaButton";
+            this.KopalniaButton.Size = new System.Drawing.Size(233, 222);
+            this.KopalniaButton.TabIndex = 4;
+            this.KopalniaButton.Text = "Kopalnia";
+            this.KopalniaButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.KopalniaButton.UseVisualStyleBackColor = false;
+            this.KopalniaButton.Click += new System.EventHandler(this.Kopalnia_Click);
             // 
-            // Koniec_tury
+            // KoniecTuryButton
             // 
-            this.Koniec_tury.BackColor = System.Drawing.Color.Wheat;
-            this.Koniec_tury.Font = new System.Drawing.Font("Montserrat Subrayada", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Koniec_tury.Location = new System.Drawing.Point(1039, 672);
-            this.Koniec_tury.Name = "Koniec_tury";
-            this.Koniec_tury.Size = new System.Drawing.Size(211, 97);
-            this.Koniec_tury.TabIndex = 5;
-            this.Koniec_tury.Text = "Następna tura";
-            this.Koniec_tury.UseVisualStyleBackColor = false;
-            this.Koniec_tury.Click += new System.EventHandler(this.Koniec_tury_Click);
+            this.KoniecTuryButton.BackColor = System.Drawing.Color.Wheat;
+            this.KoniecTuryButton.Font = new System.Drawing.Font("Montserrat Subrayada", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KoniecTuryButton.Location = new System.Drawing.Point(1030, 740);
+            this.KoniecTuryButton.Name = "KoniecTuryButton";
+            this.KoniecTuryButton.Size = new System.Drawing.Size(211, 97);
+            this.KoniecTuryButton.TabIndex = 5;
+            this.KoniecTuryButton.Text = "Następna tura";
+            this.KoniecTuryButton.UseVisualStyleBackColor = false;
+            this.KoniecTuryButton.Click += new System.EventHandler(this.Koniec_tury_Click);
             // 
             // GraForm
             // 
@@ -206,13 +206,15 @@ namespace GRA_WJP.Ekrany
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1262, 977);
-            this.Controls.Add(this.Koniec_tury);
-            this.Controls.Add(this.Kopalnia);
-            this.Controls.Add(this.Dom);
-            this.Controls.Add(this.Farma);
-            this.Controls.Add(this.Tartak);
+            this.ControlBox = false;
+            this.Controls.Add(this.KoniecTuryButton);
+            this.Controls.Add(this.KopalniaButton);
+            this.Controls.Add(this.DomButton);
+            this.Controls.Add(this.FarmaButton);
+            this.Controls.Add(this.TartakButton);
             this.Controls.Add(this.tableLayoutPanel1);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "GraForm";
@@ -227,15 +229,15 @@ namespace GRA_WJP.Ekrany
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button Tartak;
-        private System.Windows.Forms.Button Farma;
-        private System.Windows.Forms.Button Dom;
-        private System.Windows.Forms.Button Kopalnia;
-        private System.Windows.Forms.Label Tura;
-        private System.Windows.Forms.Button Jedzenie;
-        private System.Windows.Forms.Button Drewno;
-        private System.Windows.Forms.Button Zloto;
-        private System.Windows.Forms.Label Populacja;
-        public System.Windows.Forms.Button Koniec_tury;
+        private System.Windows.Forms.Button TartakButton;
+        private System.Windows.Forms.Button FarmaButton;
+        private System.Windows.Forms.Button DomButton;
+        private System.Windows.Forms.Button KopalniaButton;
+        private System.Windows.Forms.Label TuraLabel;
+        private System.Windows.Forms.Button JedzenieButton;
+        private System.Windows.Forms.Button DrewnoButton;
+        private System.Windows.Forms.Button ZlotoButton;
+        private System.Windows.Forms.Label PopulacjaLabel;
+        public System.Windows.Forms.Button KoniecTuryButton;
     }
 }

@@ -29,49 +29,39 @@ namespace GRA_WJP.Ekrany
         /// </summary>
         private void InitializeComponent()
         {
-            this.SurowiecNazwa = new System.Windows.Forms.Label();
-            this.DostepnaPopulacjaSuwak = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.SurowiecNazwaLabel = new System.Windows.Forms.Label();
+            this.DostepnaPopulacjaSuwakLabel = new System.Windows.Forms.Label();
             this.PopulacjaTrackBar = new System.Windows.Forms.TrackBar();
-            this.PopulacjaPrzydzielonaSuwak = new System.Windows.Forms.Label();
-            this.WyjscieSurowiec = new System.Windows.Forms.Button();
+            this.PopulacjaPrzydzielonaSuwakLabel = new System.Windows.Forms.Label();
+            this.WyjscieSurowiecButton = new System.Windows.Forms.Button();
+            this.Wartosc0Label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PopulacjaTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
-            // SurowiecNazwa
+            // SurowiecNazwaLabel
             // 
-            this.SurowiecNazwa.AutoSize = true;
-            this.SurowiecNazwa.Font = new System.Drawing.Font("Montserrat Subrayada", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SurowiecNazwa.Location = new System.Drawing.Point(375, 25);
-            this.SurowiecNazwa.Name = "SurowiecNazwa";
-            this.SurowiecNazwa.Size = new System.Drawing.Size(82, 24);
-            this.SurowiecNazwa.TabIndex = 0;
-            this.SurowiecNazwa.Text = "label1";
+            this.SurowiecNazwaLabel.AutoSize = true;
+            this.SurowiecNazwaLabel.Font = new System.Drawing.Font("Montserrat Subrayada", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SurowiecNazwaLabel.Location = new System.Drawing.Point(330, 15);
+            this.SurowiecNazwaLabel.Name = "SurowiecNazwaLabel";
+            this.SurowiecNazwaLabel.Size = new System.Drawing.Size(82, 24);
+            this.SurowiecNazwaLabel.TabIndex = 0;
+            this.SurowiecNazwaLabel.Text = "label1";
             // 
-            // DostepnaPopulacjaSuwak
+            // DostepnaPopulacjaSuwakLabel
             // 
-            this.DostepnaPopulacjaSuwak.AutoSize = true;
-            this.DostepnaPopulacjaSuwak.Font = new System.Drawing.Font("Montserrat Subrayada", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DostepnaPopulacjaSuwak.Location = new System.Drawing.Point(650, 66);
-            this.DostepnaPopulacjaSuwak.Name = "DostepnaPopulacjaSuwak";
-            this.DostepnaPopulacjaSuwak.Size = new System.Drawing.Size(86, 24);
-            this.DostepnaPopulacjaSuwak.TabIndex = 1;
-            this.DostepnaPopulacjaSuwak.Text = "label2";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(45, 128);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.DostepnaPopulacjaSuwakLabel.AutoSize = true;
+            this.DostepnaPopulacjaSuwakLabel.Font = new System.Drawing.Font("Montserrat Subrayada", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DostepnaPopulacjaSuwakLabel.Location = new System.Drawing.Point(630, 60);
+            this.DostepnaPopulacjaSuwakLabel.Name = "DostepnaPopulacjaSuwakLabel";
+            this.DostepnaPopulacjaSuwakLabel.Size = new System.Drawing.Size(86, 24);
+            this.DostepnaPopulacjaSuwakLabel.TabIndex = 1;
+            this.DostepnaPopulacjaSuwakLabel.Text = "label2";
             // 
             // PopulacjaTrackBar
             // 
             this.PopulacjaTrackBar.LargeChange = 10;
-            this.PopulacjaTrackBar.Location = new System.Drawing.Point(125, 60);
+            this.PopulacjaTrackBar.Location = new System.Drawing.Point(120, 60);
             this.PopulacjaTrackBar.Maximum = 100;
             this.PopulacjaTrackBar.Name = "PopulacjaTrackBar";
             this.PopulacjaTrackBar.Size = new System.Drawing.Size(500, 56);
@@ -79,45 +69,57 @@ namespace GRA_WJP.Ekrany
             this.PopulacjaTrackBar.TickFrequency = 10;
             this.PopulacjaTrackBar.Scroll += new System.EventHandler(this.PopulacjaTrackBar_Scroll);
             // 
-            // PopulacjaPrzydzielonaSuwak
+            // PopulacjaPrzydzielonaSuwakLabel
             // 
-            this.PopulacjaPrzydzielonaSuwak.AutoSize = true;
-            this.PopulacjaPrzydzielonaSuwak.Font = new System.Drawing.Font("Montserrat Subrayada", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PopulacjaPrzydzielonaSuwak.Location = new System.Drawing.Point(30, 66);
-            this.PopulacjaPrzydzielonaSuwak.Name = "PopulacjaPrzydzielonaSuwak";
-            this.PopulacjaPrzydzielonaSuwak.Size = new System.Drawing.Size(86, 24);
-            this.PopulacjaPrzydzielonaSuwak.TabIndex = 4;
-            this.PopulacjaPrzydzielonaSuwak.Text = "label3";
+            this.PopulacjaPrzydzielonaSuwakLabel.AutoSize = true;
+            this.PopulacjaPrzydzielonaSuwakLabel.Font = new System.Drawing.Font("Montserrat Subrayada", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PopulacjaPrzydzielonaSuwakLabel.Location = new System.Drawing.Point(330, 105);
+            this.PopulacjaPrzydzielonaSuwakLabel.Name = "PopulacjaPrzydzielonaSuwakLabel";
+            this.PopulacjaPrzydzielonaSuwakLabel.Size = new System.Drawing.Size(86, 24);
+            this.PopulacjaPrzydzielonaSuwakLabel.TabIndex = 4;
+            this.PopulacjaPrzydzielonaSuwakLabel.Text = "label3";
             // 
-            // WyjscieSurowiec
+            // WyjscieSurowiecButton
             // 
-            this.WyjscieSurowiec.Font = new System.Drawing.Font("Montserrat Subrayada", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WyjscieSurowiec.Location = new System.Drawing.Point(361, 152);
-            this.WyjscieSurowiec.Name = "WyjscieSurowiec";
-            this.WyjscieSurowiec.Size = new System.Drawing.Size(153, 41);
-            this.WyjscieSurowiec.TabIndex = 5;
-            this.WyjscieSurowiec.Text = "Przydziel";
-            this.WyjscieSurowiec.UseVisualStyleBackColor = true;
-            this.WyjscieSurowiec.Click += new System.EventHandler(this.WyjscieSurowiec_Click);
+            this.WyjscieSurowiecButton.Font = new System.Drawing.Font("Montserrat Subrayada", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WyjscieSurowiecButton.Location = new System.Drawing.Point(300, 160);
+            this.WyjscieSurowiecButton.Name = "WyjscieSurowiecButton";
+            this.WyjscieSurowiecButton.Size = new System.Drawing.Size(148, 40);
+            this.WyjscieSurowiecButton.TabIndex = 5;
+            this.WyjscieSurowiecButton.Text = "Przydziel";
+            this.WyjscieSurowiecButton.UseVisualStyleBackColor = true;
+            this.WyjscieSurowiecButton.Click += new System.EventHandler(this.WyjscieSurowiec_Click);
+            // 
+            // Wartosc0Label
+            // 
+            this.Wartosc0Label.AutoSize = true;
+            this.Wartosc0Label.Font = new System.Drawing.Font("Montserrat Subrayada", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Wartosc0Label.Location = new System.Drawing.Point(30, 60);
+            this.Wartosc0Label.Name = "Wartosc0Label";
+            this.Wartosc0Label.Size = new System.Drawing.Size(24, 24);
+            this.Wartosc0Label.TabIndex = 6;
+            this.Wartosc0Label.Text = "0";
             // 
             // SurowiecForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(728, 249);
+            this.BackColor = System.Drawing.Color.Wheat;
+            this.ClientSize = new System.Drawing.Size(718, 239);
             this.ControlBox = false;
-            this.Controls.Add(this.WyjscieSurowiec);
-            this.Controls.Add(this.PopulacjaPrzydzielonaSuwak);
+            this.Controls.Add(this.Wartosc0Label);
+            this.Controls.Add(this.WyjscieSurowiecButton);
+            this.Controls.Add(this.PopulacjaPrzydzielonaSuwakLabel);
             this.Controls.Add(this.PopulacjaTrackBar);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.DostepnaPopulacjaSuwak);
-            this.Controls.Add(this.SurowiecNazwa);
+            this.Controls.Add(this.DostepnaPopulacjaSuwakLabel);
+            this.Controls.Add(this.SurowiecNazwaLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SurowiecForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Zarządzenie Surowcem";
             ((System.ComponentModel.ISupportInitialize)(this.PopulacjaTrackBar)).EndInit();
             this.ResumeLayout(false);
@@ -127,12 +129,12 @@ namespace GRA_WJP.Ekrany
 
         #endregion
 
-        private System.Windows.Forms.Label SurowiecNazwa;
-        private System.Windows.Forms.Label DostepnaPopulacjaSuwak;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label SurowiecNazwaLabel;
+        private System.Windows.Forms.Label DostepnaPopulacjaSuwakLabel;
         private System.Windows.Forms.TrackBar PopulacjaTrackBar;
-        private System.Windows.Forms.Label PopulacjaPrzydzielonaSuwak;
+        private System.Windows.Forms.Label PopulacjaPrzydzielonaSuwakLabel;
         private System.Windows.Forms.Button WyjscieSurek;
-        private System.Windows.Forms.Button WyjscieSurowiec;
+        private System.Windows.Forms.Button WyjscieSurowiecButton;
+        private System.Windows.Forms.Label Wartosc0Label;
     }
 }

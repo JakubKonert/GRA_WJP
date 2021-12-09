@@ -3,17 +3,18 @@ using System;
 
 namespace GRA_WJP.Ekrany.Interfejsy
 {
+    //interfejs aby moc stworzyc liste budynkow, ktore dziedzicza po tym interfejsie
+    //+ interfejs jako przypominajka co musze zawrzec w budynku
     public interface IBudynek
     {
-        int lvl { get; set; }
-        int pojemnosc { get; set; }
-        BudynekEnum nazwa { get; set; }
-
-        int wspolczynnikUlepszeniaPoboczny { get; set; }
-        int wspolczynnikUlepszeniaGlowny { get; set; }
-        int pojemonscLVL { get; set; }
-        String nazwaSurowcaGlowna { get; set; }
-        String nazwaSurowcaPoboczna { get; set; }
+        int Lvl { get; set; }
+        int Pojemnosc { get; set; }
+        BudynekEnum Nazwa { get; }
+        int WspolczynnikUlepszeniaPoboczny { get; }
+        int WspolczynnikUlepszeniaGlowny { get; }
+        int PojemonscLVL { get; set; }
+        String NazwaSurowcaGlowna { get; }
+        String NazwaSurowcaPoboczna { get; }
         void Upgrade();
         bool MowliwoscUpgradu();
     }

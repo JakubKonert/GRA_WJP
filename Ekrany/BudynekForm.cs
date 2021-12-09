@@ -9,15 +9,16 @@ namespace GRA_WJP.Ekrany
     {
         private IBudynek Budynek { get; set; }
         private IEkran Ekran { get; set; }
-
+        
+        //wyswietlenie danych na temat konretnego budynku, ktory jest wysylany jako argument
         public BudynekForm(IEkran ekrangra, IBudynek Budynek)
         {
             Ekran = ekrangra;
             this.Budynek = Budynek;
             InitializeComponent();
-            nazwa_budynku.Text = Budynek.nazwa.ToString();
-            Level_budynku.Text = $"LVL: {Budynek.lvl.ToString()}";
-            Pojemnosc_budynku.Text = $"Pojemonść: {Budynek.pojemnosc.ToString()}";
+            NazwaBudynkuLabel.Text = Budynek.Nazwa.ToString();
+            LevelBudynkuButton.Text = $"LVL: {Budynek.Lvl.ToString()}";
+            PojemnoscBudynkuLabel.Text = $"Pojemonść: {Budynek.Pojemnosc.ToString()}";
             OdswiezEkran();
         }
 
@@ -29,19 +30,20 @@ namespace GRA_WJP.Ekrany
 
         public void OdswiezEkran()
         {
+            //odswiezenie ekranu po wcisnieciu upgrade, aby gracz na biezaco widzial cene kolejnego upgradu
             Ekran.OdswiezEkran();
-            Level_budynku.Text = $"LVL: {Budynek.lvl.ToString()}";
-            Pojemnosc_budynku.Text = $"Pojemonść: {Budynek.pojemnosc.ToString()}";
-            if (Budynek.nazwa == Enums.BudynekEnum.Kopalnia)
+            LevelBudynkuButton.Text = $"LVL: {Budynek.Lvl.ToString()}";
+            PojemnoscBudynkuLabel.Text = $"Pojemonść: {Budynek.Pojemnosc.ToString()}";
+            if (Budynek.Nazwa == Enums.BudynekEnum.Kopalnia)
             {
-                Wymagania_ulepszenia.Text = $"Cena: {Budynek.nazwaSurowcaGlowna}:" +
-                $" {Budynek.lvl * Budynek.wspolczynnikUlepszeniaGlowny}";
+                WymaganiaUlepszeniaButton.Text = $"Cena: {Budynek.NazwaSurowcaGlowna}:" +
+                $" {Budynek.Lvl * Budynek.WspolczynnikUlepszeniaGlowny}";
             }
             else
             {
-                Wymagania_ulepszenia.Text = $"Cena: {Budynek.nazwaSurowcaGlowna}:" +
-                    $" {Budynek.lvl * Budynek.wspolczynnikUlepszeniaGlowny}, {Budynek.nazwaSurowcaPoboczna}:" +
-                    $" {Budynek.lvl * Budynek.wspolczynnikUlepszeniaPoboczny}";
+                WymaganiaUlepszeniaButton.Text = $"Cena: {Budynek.NazwaSurowcaGlowna}:" +
+                    $" {Budynek.Lvl * Budynek.WspolczynnikUlepszeniaGlowny}, {Budynek.NazwaSurowcaPoboczna}:" +
+                    $" {Budynek.Lvl * Budynek.WspolczynnikUlepszeniaPoboczny}";
             }
             UstawienieDostepnosciPrzycisku();
         }
@@ -51,19 +53,20 @@ namespace GRA_WJP.Ekrany
             this.Close();
         }
 
+        //blokada, aby gracz nie mogl wcisnac przycisku jesli nie spelnia wymagan, lvl budynku max 5, cena
+        //w surowcach
         private void UstawienieDostepnosciPrzycisku()
         {
-            if(Budynek.lvl >=5) Wymagania_ulepszenia.Text = "";
-            if ((Budynek.MowliwoscUpgradu()) && Budynek.lvl < 5)
+            if (Budynek.Lvl >= 5) WymaganiaUlepszeniaButton.Text = "";
+            if ((Budynek.MowliwoscUpgradu()) && Budynek.Lvl < 5)
             {
-                Upgrade.Enabled = true;
-                Wymagania_ulepszenia.ForeColor = Color.Green;
+                UpgradeButton.Enabled = true;
+                WymaganiaUlepszeniaButton.ForeColor = Color.Green;
             }
             else
             {
-                Upgrade.Enabled = false;
-                Wymagania_ulepszenia.ForeColor = Color.Red;
-
+                UpgradeButton.Enabled = false;
+                WymaganiaUlepszeniaButton.ForeColor = Color.Red;
             }
         }
     }

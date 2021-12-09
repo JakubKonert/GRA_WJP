@@ -29,41 +29,57 @@ namespace GRA_WJP.Ekrany
         /// </summary>
         private void InitializeComponent()
         {
-            this.Statystyki_text = new System.Windows.Forms.Label();
-            this.powrot_menu = new System.Windows.Forms.Button();
+            this.StatystykiTextLabel = new System.Windows.Forms.Label();
+            this.PowrotMenuButton = new System.Windows.Forms.Button();
+            this.StatystykiLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // Statystyki_text
+            // StatystykiTextLabel
             // 
-            this.Statystyki_text.AutoSize = true;
-            this.Statystyki_text.Location = new System.Drawing.Point(448, 86);
-            this.Statystyki_text.Name = "Statystyki_text";
-            this.Statystyki_text.Size = new System.Drawing.Size(0, 17);
-            this.Statystyki_text.TabIndex = 0;
+            this.StatystykiTextLabel.AutoSize = true;
+            this.StatystykiTextLabel.Location = new System.Drawing.Point(340, 90);
+            this.StatystykiTextLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.StatystykiTextLabel.Name = "StatystykiTextLabel";
+            this.StatystykiTextLabel.Size = new System.Drawing.Size(0, 24);
+            this.StatystykiTextLabel.TabIndex = 0;
             // 
-            // powrot_menu
+            // PowrotMenuButton
             // 
-            this.powrot_menu.Location = new System.Drawing.Point(418, 535);
-            this.powrot_menu.Name = "powrot_menu";
-            this.powrot_menu.Size = new System.Drawing.Size(234, 93);
-            this.powrot_menu.TabIndex = 1;
-            this.powrot_menu.Text = "Powrót do menu głównego";
-            this.powrot_menu.UseVisualStyleBackColor = true;
-            this.powrot_menu.Click += new System.EventHandler(this.powrot_menu_Click);
+            this.PowrotMenuButton.Location = new System.Drawing.Point(350, 650);
+            this.PowrotMenuButton.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.PowrotMenuButton.Name = "PowrotMenuButton";
+            this.PowrotMenuButton.Size = new System.Drawing.Size(300, 70);
+            this.PowrotMenuButton.TabIndex = 1;
+            this.PowrotMenuButton.Text = "Powrót do menu głównego";
+            this.PowrotMenuButton.UseVisualStyleBackColor = true;
+            this.PowrotMenuButton.Click += new System.EventHandler(this.powrot_menu_Click);
+            // 
+            // StatystykiLabel
+            // 
+            this.StatystykiLabel.AutoSize = true;
+            this.StatystykiLabel.Location = new System.Drawing.Point(443, 30);
+            this.StatystykiLabel.Name = "StatystykiLabel";
+            this.StatystykiLabel.Size = new System.Drawing.Size(86, 24);
+            this.StatystykiLabel.TabIndex = 2;
+            this.StatystykiLabel.Text = "Wyniki";
             // 
             // StatystykiForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1262, 977);
+            this.BackColor = System.Drawing.Color.Wheat;
+            this.ClientSize = new System.Drawing.Size(982, 753);
             this.ControlBox = false;
-            this.Controls.Add(this.powrot_menu);
-            this.Controls.Add(this.Statystyki_text);
+            this.Controls.Add(this.StatystykiLabel);
+            this.Controls.Add(this.PowrotMenuButton);
+            this.Controls.Add(this.StatystykiTextLabel);
+            this.Font = new System.Drawing.Font("Montserrat Subrayada", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "StatystykiForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Statystyki";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -72,7 +88,8 @@ namespace GRA_WJP.Ekrany
 
         #endregion
 
-        private System.Windows.Forms.Label Statystyki_text;
-        private System.Windows.Forms.Button powrot_menu;
+        private System.Windows.Forms.Label StatystykiTextLabel;
+        private System.Windows.Forms.Button PowrotMenuButton;
+        private System.Windows.Forms.Label StatystykiLabel;
     }
 }

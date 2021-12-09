@@ -66,23 +66,23 @@
     </Compile>
     <Compile Include="Ekrany\Interfejsy\IBudynek.cs" />
     <Compile Include="Ekrany\Interfejsy\IEkran.cs" />
-    <Compile Include="Ekrany\Koniec.cs">
+    <Compile Include="Ekrany\KoniecForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ekrany\Koniec.Designer.cs">
-      <DependentUpon>Koniec.cs</DependentUpon>
+    <Compile Include="Ekrany\KoniecForm.Designer.cs">
+      <DependentUpon>KoniecForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ekrany\Podsumowanie_tury.cs">
+    <Compile Include="Ekrany\PodsumowanieTuryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ekrany\Podsumowanie_tury.Designer.cs">
-      <DependentUpon>Podsumowanie_tury.cs</DependentUpon>
+    <Compile Include="Ekrany\PodsumowanieTuryForm.Designer.cs">
+      <DependentUpon>PodsumowanieTuryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ekrany\Start_menu.cs">
+    <Compile Include="Ekrany\StartMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ekrany\Start_menu.Designer.cs">
-      <DependentUpon>Start_menu.cs</DependentUpon>
+    <Compile Include="Ekrany\StartMenuForm.Designer.cs">
+      <DependentUpon>StartMenuForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Ekrany\StatystykiForm.cs">
       <SubType>Form</SubType>
@@ -123,14 +123,14 @@
     <EmbeddedResource Include="Ekrany\GraForm.resx">
       <DependentUpon>GraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ekrany\Koniec.resx">
-      <DependentUpon>Koniec.cs</DependentUpon>
+    <EmbeddedResource Include="Ekrany\KoniecForm.resx">
+      <DependentUpon>KoniecForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ekrany\Podsumowanie_tury.resx">
-      <DependentUpon>Podsumowanie_tury.cs</DependentUpon>
+    <EmbeddedResource Include="Ekrany\PodsumowanieTuryForm.resx">
+      <DependentUpon>PodsumowanieTuryForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ekrany\Start_menu.resx">
-      <DependentUpon>Start_menu.cs</DependentUpon>
+    <EmbeddedResource Include="Ekrany\StartMenuForm.resx">
+      <DependentUpon>StartMenuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ekrany\StatystykiForm.resx">
       <DependentUpon>StatystykiForm.cs</DependentUpon>

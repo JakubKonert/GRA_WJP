@@ -29,83 +29,92 @@ namespace GRA_WJP.Ekrany
         /// </summary>
         private void InitializeComponent()
         {
-            this.nazwa_budynku = new System.Windows.Forms.Label();
-            this.Level_budynku = new System.Windows.Forms.Label();
-            this.Pojemnosc_budynku = new System.Windows.Forms.Label();
-            this.Upgrade = new System.Windows.Forms.Button();
-            this.Wymagania_ulepszenia = new System.Windows.Forms.Label();
-            this.Wyjscie_budynek = new System.Windows.Forms.Button();
+            this.NazwaBudynkuLabel = new System.Windows.Forms.Label();
+            this.LevelBudynkuButton = new System.Windows.Forms.Label();
+            this.PojemnoscBudynkuLabel = new System.Windows.Forms.Label();
+            this.UpgradeButton = new System.Windows.Forms.Button();
+            this.WymaganiaUlepszeniaButton = new System.Windows.Forms.Label();
+            this.WyjscieBudynekButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // nazwa_budynku
+            // NazwaBudynkuLabel
             // 
-            this.nazwa_budynku.AutoSize = true;
-            this.nazwa_budynku.Location = new System.Drawing.Point(331, 65);
-            this.nazwa_budynku.Name = "nazwa_budynku";
-            this.nazwa_budynku.Size = new System.Drawing.Size(46, 17);
-            this.nazwa_budynku.TabIndex = 0;
-            this.nazwa_budynku.Text = "label1";
+            this.NazwaBudynkuLabel.AutoSize = true;
+            this.NazwaBudynkuLabel.Location = new System.Drawing.Point(250, 50);
+            this.NazwaBudynkuLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.NazwaBudynkuLabel.Name = "NazwaBudynkuLabel";
+            this.NazwaBudynkuLabel.Size = new System.Drawing.Size(82, 24);
+            this.NazwaBudynkuLabel.TabIndex = 0;
+            this.NazwaBudynkuLabel.Text = "label1";
             // 
-            // Level_budynku
+            // LevelBudynkuButton
             // 
-            this.Level_budynku.AutoSize = true;
-            this.Level_budynku.Location = new System.Drawing.Point(331, 128);
-            this.Level_budynku.Name = "Level_budynku";
-            this.Level_budynku.Size = new System.Drawing.Size(46, 17);
-            this.Level_budynku.TabIndex = 1;
-            this.Level_budynku.Text = "label2";
+            this.LevelBudynkuButton.AutoSize = true;
+            this.LevelBudynkuButton.Location = new System.Drawing.Point(250, 150);
+            this.LevelBudynkuButton.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.LevelBudynkuButton.Name = "LevelBudynkuButton";
+            this.LevelBudynkuButton.Size = new System.Drawing.Size(86, 24);
+            this.LevelBudynkuButton.TabIndex = 1;
+            this.LevelBudynkuButton.Text = "label2";
             // 
-            // Pojemnosc_budynku
+            // PojemnoscBudynkuLabel
             // 
-            this.Pojemnosc_budynku.AutoSize = true;
-            this.Pojemnosc_budynku.Location = new System.Drawing.Point(331, 174);
-            this.Pojemnosc_budynku.Name = "Pojemnosc_budynku";
-            this.Pojemnosc_budynku.Size = new System.Drawing.Size(46, 17);
-            this.Pojemnosc_budynku.TabIndex = 2;
-            this.Pojemnosc_budynku.Text = "label3";
+            this.PojemnoscBudynkuLabel.AutoSize = true;
+            this.PojemnoscBudynkuLabel.Location = new System.Drawing.Point(250, 230);
+            this.PojemnoscBudynkuLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.PojemnoscBudynkuLabel.Name = "PojemnoscBudynkuLabel";
+            this.PojemnoscBudynkuLabel.Size = new System.Drawing.Size(86, 24);
+            this.PojemnoscBudynkuLabel.TabIndex = 2;
+            this.PojemnoscBudynkuLabel.Text = "label3";
             // 
-            // Upgrade
+            // UpgradeButton
             // 
-            this.Upgrade.Location = new System.Drawing.Point(334, 265);
-            this.Upgrade.Name = "Upgrade";
-            this.Upgrade.Size = new System.Drawing.Size(75, 23);
-            this.Upgrade.TabIndex = 3;
-            this.Upgrade.Text = "Ulepsz";
-            this.Upgrade.UseVisualStyleBackColor = true;
-            this.Upgrade.Click += new System.EventHandler(this.Upgrade_Click);
+            this.UpgradeButton.Location = new System.Drawing.Point(280, 350);
+            this.UpgradeButton.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.UpgradeButton.Name = "UpgradeButton";
+            this.UpgradeButton.Size = new System.Drawing.Size(131, 34);
+            this.UpgradeButton.TabIndex = 3;
+            this.UpgradeButton.Text = "Ulepsz";
+            this.UpgradeButton.UseVisualStyleBackColor = true;
+            this.UpgradeButton.Click += new System.EventHandler(this.Upgrade_Click);
             // 
-            // Wymagania_ulepszenia
+            // WymaganiaUlepszeniaButton
             // 
-            this.Wymagania_ulepszenia.AutoSize = true;
-            this.Wymagania_ulepszenia.Location = new System.Drawing.Point(334, 211);
-            this.Wymagania_ulepszenia.Name = "Wymagania_ulepszenia";
-            this.Wymagania_ulepszenia.Size = new System.Drawing.Size(45, 17);
-            this.Wymagania_ulepszenia.TabIndex = 4;
-            this.Wymagania_ulepszenia.Text = "Cena:";
+            this.WymaganiaUlepszeniaButton.AutoSize = true;
+            this.WymaganiaUlepszeniaButton.Location = new System.Drawing.Point(250, 300);
+            this.WymaganiaUlepszeniaButton.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.WymaganiaUlepszeniaButton.Name = "WymaganiaUlepszeniaButton";
+            this.WymaganiaUlepszeniaButton.Size = new System.Drawing.Size(75, 24);
+            this.WymaganiaUlepszeniaButton.TabIndex = 4;
+            this.WymaganiaUlepszeniaButton.Text = "Cena:";
             // 
-            // Wyjscie_budynek
+            // WyjscieBudynekButton
             // 
-            this.Wyjscie_budynek.Location = new System.Drawing.Point(337, 342);
-            this.Wyjscie_budynek.Name = "Wyjscie_budynek";
-            this.Wyjscie_budynek.Size = new System.Drawing.Size(75, 23);
-            this.Wyjscie_budynek.TabIndex = 5;
-            this.Wyjscie_budynek.Text = "Wyjscie";
-            this.Wyjscie_budynek.UseVisualStyleBackColor = true;
-            this.Wyjscie_budynek.Click += new System.EventHandler(this.Wyjscie_budynek_Click);
+            this.WyjscieBudynekButton.Location = new System.Drawing.Point(280, 500);
+            this.WyjscieBudynekButton.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.WyjscieBudynekButton.Name = "WyjscieBudynekButton";
+            this.WyjscieBudynekButton.Size = new System.Drawing.Size(130, 35);
+            this.WyjscieBudynekButton.TabIndex = 5;
+            this.WyjscieBudynekButton.Text = "Wyjscie";
+            this.WyjscieBudynekButton.UseVisualStyleBackColor = true;
+            this.WyjscieBudynekButton.Click += new System.EventHandler(this.Wyjscie_budynek_Click);
             // 
             // BudynekForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.Wheat;
+            this.ClientSize = new System.Drawing.Size(682, 553);
             this.ControlBox = false;
-            this.Controls.Add(this.Wyjscie_budynek);
-            this.Controls.Add(this.Wymagania_ulepszenia);
-            this.Controls.Add(this.Upgrade);
-            this.Controls.Add(this.Pojemnosc_budynku);
-            this.Controls.Add(this.Level_budynku);
-            this.Controls.Add(this.nazwa_budynku);
+            this.Controls.Add(this.WyjscieBudynekButton);
+            this.Controls.Add(this.WymaganiaUlepszeniaButton);
+            this.Controls.Add(this.UpgradeButton);
+            this.Controls.Add(this.PojemnoscBudynkuLabel);
+            this.Controls.Add(this.LevelBudynkuButton);
+            this.Controls.Add(this.NazwaBudynkuLabel);
+            this.Font = new System.Drawing.Font("Montserrat Subrayada", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "BudynekForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -118,11 +127,11 @@ namespace GRA_WJP.Ekrany
 
         #endregion
 
-        private System.Windows.Forms.Label nazwa_budynku;
-        private System.Windows.Forms.Label Level_budynku;
-        private System.Windows.Forms.Label Pojemnosc_budynku;
-        private System.Windows.Forms.Button Upgrade;
-        private System.Windows.Forms.Label Wymagania_ulepszenia;
-        private System.Windows.Forms.Button Wyjscie_budynek;
+        private System.Windows.Forms.Label NazwaBudynkuLabel;
+        private System.Windows.Forms.Label LevelBudynkuButton;
+        private System.Windows.Forms.Label PojemnoscBudynkuLabel;
+        private System.Windows.Forms.Button UpgradeButton;
+        private System.Windows.Forms.Label WymaganiaUlepszeniaButton;
+        private System.Windows.Forms.Button WyjscieBudynekButton;
     }
 }

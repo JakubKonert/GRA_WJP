@@ -1,30 +1,38 @@
 ﻿using GRA_WJP.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GRA_WJP.Klasy
 {
     public class Surowiec
     {
-
-        public Surowiec(int ilosc, SurowiecEnum nazwa)
+        //funkcje i pola samoopisuja sie
+        public Surowiec(int Ilosc, SurowiecEnum Nazwa)
         {
-            this.ilosc = ilosc;
-            this.nazwa = nazwa;
+            this.Ilosc = Ilosc;
+            this.Nazwa = Nazwa;
+        }
+        private int Ilosc { get; set; }
+        private SurowiecEnum Nazwa { get; }
+        private int PrzydzielonaPopulacja { get; set; }
+
+        public SurowiecEnum JakaNazwa() => Nazwa;
+        public void ZmienIloscPrzydzielonejPopulacji(int Wartosc)
+        {
+            PrzydzielonaPopulacja += Wartosc;
         }
 
-        public int ilosc { get; set; }
-        private SurowiecEnum nazwa { get; }
-        public int PrzydzielonaPopulacja;
-
-        public SurowiecEnum jakaNazwa() => nazwa;
-
-        public void ZwiekszIloscSurowca(int wartosc)
+        public void UstawIloscSurowca(int Ilosc)
         {
-            ilosc += wartosc;
+            this.Ilosc = Ilosc;
+        }
+        public void UstawIloscPrzydzielonejPopulacji(int Ilosc)
+        {
+            this.PrzydzielonaPopulacja = Ilosc;
+        }
+        public int IlePrzydzielonaPopulacja() => PrzydzielonaPopulacja;
+        public int IleSurowiec() => Ilosc;
+        public void ZwiekszIloscSurowca(int Wartosc)
+        {
+            Ilosc += Wartosc;
         }
     }
 }

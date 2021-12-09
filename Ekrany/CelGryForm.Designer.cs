@@ -29,39 +29,49 @@ namespace GRA_WJP.Ekrany
         /// </summary>
         private void InitializeComponent()
         {
-            this.powrot_Menu = new System.Windows.Forms.Button();
-            this.Opis = new System.Windows.Forms.Label();
+            this.OpisLabel = new System.Windows.Forms.Label();
+            this.PowrotMenuButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // powrot_Menu
+            // OpisLabel
             // 
-            this.powrot_Menu.Location = new System.Drawing.Point(525, 908);
-            this.powrot_Menu.Name = "powrot_Menu";
-            this.powrot_Menu.Size = new System.Drawing.Size(195, 75);
-            this.powrot_Menu.TabIndex = 0;
-            this.powrot_Menu.Text = "Powrót do menu głównego";
-            this.powrot_Menu.UseVisualStyleBackColor = true;
-            this.powrot_Menu.Click += new System.EventHandler(this.powrot_Menu_Click);
+            this.OpisLabel.AutoSize = true;
+            this.OpisLabel.Location = new System.Drawing.Point(13, 9);
+            this.OpisLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.OpisLabel.Name = "OpisLabel";
+            this.OpisLabel.Size = new System.Drawing.Size(72, 20);
+            this.OpisLabel.TabIndex = 1;
+            this.OpisLabel.Text = "label1";
             // 
-            // Opis
+            // PowrotMenuButton
             // 
-            this.Opis.AutoSize = true;
-            this.Opis.Location = new System.Drawing.Point(522, 52);
-            this.Opis.Name = "Opis";
-            this.Opis.Size = new System.Drawing.Size(46, 17);
-            this.Opis.TabIndex = 1;
-            this.Opis.Text = "label1";
+            this.PowrotMenuButton.Location = new System.Drawing.Point(405, 680);
+            this.PowrotMenuButton.Name = "PowrotMenuButton";
+            this.PowrotMenuButton.Size = new System.Drawing.Size(190, 60);
+            this.PowrotMenuButton.TabIndex = 2;
+            this.PowrotMenuButton.Text = "Powrót do menu głównego";
+            this.PowrotMenuButton.UseVisualStyleBackColor = true;
+            this.PowrotMenuButton.Click += new System.EventHandler(this.PowrotMenuButton_Click);
             // 
             // CelGryForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1280, 1024);
-            this.Controls.Add(this.Opis);
-            this.Controls.Add(this.powrot_Menu);
+            this.BackColor = System.Drawing.Color.Wheat;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(982, 753);
+            this.ControlBox = false;
+            this.Controls.Add(this.PowrotMenuButton);
+            this.Controls.Add(this.OpisLabel);
             this.Cursor = System.Windows.Forms.Cursors.Help;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Font = new System.Drawing.Font("Montserrat Subrayada", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CelGryForm";
+            this.RightToLeftLayout = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Cel gry";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -70,7 +80,7 @@ namespace GRA_WJP.Ekrany
 
         #endregion
 
-        private System.Windows.Forms.Button powrot_Menu;
-        private System.Windows.Forms.Label Opis;
+        private System.Windows.Forms.Label OpisLabel;
+        private System.Windows.Forms.Button PowrotMenuButton;
     }
 }

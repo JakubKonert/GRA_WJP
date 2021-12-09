@@ -1,22 +1,19 @@
 ﻿using GRA_WJP.Klasy;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GRA_WJP.Ekrany
 {
     public partial class StatystykiForm : Form
     {
-        // TO DO: Przekazac 'master' parent i na nim dzialac :)
-        public StatystykiForm()
+        private Form OknoRodzic;
+        public StatystykiForm(Form OknoRodzic)
         {
+            this.OknoRodzic = OknoRodzic;
             InitializeComponent();
 
             ZaladujStatystyki();
@@ -24,29 +21,30 @@ namespace GRA_WJP.Ekrany
 
         private void powrot_menu_Click(object sender, EventArgs e)
         {
-            //Pytanie: powrócenie widzialności menu głównego
-            //Menu_form.visible = true;
+            OknoRodzic.Visible = true;
             this.Close();
         }
-
+        //wyswietlanie 10 najlepszych wynikow na tablicy, dane czytane z pliku tekstowego, ktory jest 
+        //odpowiednio formatowany (split(';'))
         private void ZaladujStatystyki()
         {
-            var wyniki = new List<Wynik>();
-
-            foreach (var wynik in File.ReadAllLines("wyniki.txt"))
+            var Wyniki = new List<Wynik>();
+            if (File.Exists("Wyniki.txt"))
             {
-                var wynikDane = wynik.Split(';');
-                wyniki.Add(new Wynik(wynikDane[0], DateTime.Parse(wynikDane[2]), int.Parse(wynikDane[1])));
+                foreach (var Wynik in File.ReadAllLines("Wyniki.txt"))
+                {
+                    var WynikDane = Wynik.Split(';');
+                    Wyniki.Add(new Wynik(WynikDane[0], DateTime.Parse(WynikDane[2]), int.Parse(WynikDane[1])));
+                }
+
+                Wyniki = Wyniki.OrderBy(w => w.KtoraTuraNumer()).ThenBy(w => w.JakaData()).Take(10).ToList();
+
+                int i = 1;
+                foreach (var Wynik in Wyniki)
+                {
+                    StatystykiTextLabel.Text += $"{i++}. {Wynik.JakaNazwa()}   Tura: {Wynik.KtoraTuraNumer()}   Data: {Wynik.JakaData()}\n";
+                }
             }
-
-            wyniki = wyniki.OrderBy(w => w.ktoraTura).ThenBy(w => w.data).Take(10).ToList();
-
-            int i = 1;
-            foreach (var wynik in wyniki)
-            {
-                Statystyki_text.Text += $"{i++}. {wynik.nazwa}\t{wynik.ktoraTura}\t{wynik.data}\n";
-            }
-
         }
     }
 }

@@ -29,37 +29,44 @@ namespace GRA_WJP.Ekrany
         /// </summary>
         private void InitializeComponent()
         {
-            this.ZapisWyniku = new System.Windows.Forms.Button();
-            this.zapisWynikuTextBox = new System.Windows.Forms.TextBox();
+            this.ZapisWynikuButton = new System.Windows.Forms.Button();
+            this.ZapisWynikuTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // ZapisWyniku
+            // ZapisWynikuButton
             // 
-            this.ZapisWyniku.Location = new System.Drawing.Point(364, 360);
-            this.ZapisWyniku.Name = "ZapisWyniku";
-            this.ZapisWyniku.Size = new System.Drawing.Size(75, 23);
-            this.ZapisWyniku.TabIndex = 0;
-            this.ZapisWyniku.Text = "Zapisz";
-            this.ZapisWyniku.UseVisualStyleBackColor = true;
-            this.ZapisWyniku.Click += new System.EventHandler(this.ZapisWyniku_Click);
+            this.ZapisWynikuButton.Font = new System.Drawing.Font("Montserrat Subrayada", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ZapisWynikuButton.Location = new System.Drawing.Point(65, 70);
+            this.ZapisWynikuButton.Name = "ZapisWynikuButton";
+            this.ZapisWynikuButton.Size = new System.Drawing.Size(120, 60);
+            this.ZapisWynikuButton.TabIndex = 0;
+            this.ZapisWynikuButton.Text = "Zapisz";
+            this.ZapisWynikuButton.UseVisualStyleBackColor = true;
+            this.ZapisWynikuButton.Click += new System.EventHandler(this.ZapisWyniku_Click);
             // 
-            // zapisWynikuTextBox
+            // ZapisWynikuTextBox
             // 
-            this.zapisWynikuTextBox.Location = new System.Drawing.Point(364, 111);
-            this.zapisWynikuTextBox.Name = "zapisWynikuTextBox";
-            this.zapisWynikuTextBox.Size = new System.Drawing.Size(100, 22);
-            this.zapisWynikuTextBox.TabIndex = 1;
+            this.ZapisWynikuTextBox.Font = new System.Drawing.Font("Montserrat Subrayada", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ZapisWynikuTextBox.Location = new System.Drawing.Point(75, 20);
+            this.ZapisWynikuTextBox.Name = "ZapisWynikuTextBox";
+            this.ZapisWynikuTextBox.Size = new System.Drawing.Size(100, 32);
+            this.ZapisWynikuTextBox.TabIndex = 1;
+            this.ZapisWynikuTextBox.Text = "Gracz";
             // 
             // ZapisWynikuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.zapisWynikuTextBox);
-            this.Controls.Add(this.ZapisWyniku);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.BackColor = System.Drawing.Color.Wheat;
+            this.ClientSize = new System.Drawing.Size(252, 183);
+            this.ControlBox = false;
+            this.Controls.Add(this.ZapisWynikuTextBox);
+            this.Controls.Add(this.ZapisWynikuButton);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ZapisWynikuForm";
-            this.Text = "ZapisWynikuForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Zapis Wyniku";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -67,7 +74,7 @@ namespace GRA_WJP.Ekrany
 
         #endregion
 
-        private System.Windows.Forms.Button ZapisWyniku;
-        private System.Windows.Forms.TextBox zapisWynikuTextBox;
+        private System.Windows.Forms.Button ZapisWynikuButton;
+        private System.Windows.Forms.TextBox ZapisWynikuTextBox;
     }
 }

@@ -6,39 +6,38 @@ namespace GRA_WJP.Klasy.Budynki
 {
     public class Kopalnia : IBudynek
     {
-        public Kopalnia(int lvl, int pojemnosc, int pojemonscLVL, int wspolczynnikUlepszeniaGlowny,
-            String nazwaSurowcaGlowna)
+        public Kopalnia(int Lvl, int Pojemnosc, int PojemonscLVL, int WspolczynnikUlepszeniaGlowny,
+            String NazwaSurowcaGlowna)
         {
-            this.lvl = lvl;
-            this.pojemnosc = pojemnosc;
-            this.nazwa = BudynekEnum.Kopalnia;
-            this.wspolczynnikUlepszeniaGlowny = wspolczynnikUlepszeniaGlowny;
-            this.pojemonscLVL = pojemonscLVL;
-
-            this.nazwaSurowcaGlowna = nazwaSurowcaGlowna;
+            this.Lvl = Lvl;
+            this.Pojemnosc = Pojemnosc;
+            this.Nazwa = BudynekEnum.Kopalnia;
+            this.WspolczynnikUlepszeniaGlowny = WspolczynnikUlepszeniaGlowny;
+            this.PojemonscLVL = PojemonscLVL;
+            this.NazwaSurowcaGlowna = NazwaSurowcaGlowna;
         }
 
-        public int lvl { get; set; }
-        public int pojemnosc { get; set; }
-        public BudynekEnum nazwa { get; set; }
+        public int Lvl { get; set; }
+        public int Pojemnosc { get; set; }
+        public BudynekEnum Nazwa { get; set; }
 
-        public int wspolczynnikUlepszeniaGlowny { get; set; }
-        public int wspolczynnikUlepszeniaPoboczny { get; set; }
-        public String nazwaSurowcaGlowna { get; set; }
-        public String nazwaSurowcaPoboczna { get; set; }
-        public int pojemonscLVL { get; set; }
+        public int WspolczynnikUlepszeniaGlowny { get; set; }
+        public int WspolczynnikUlepszeniaPoboczny { get; set; }
+        public String NazwaSurowcaGlowna { get; set; }
+        public String NazwaSurowcaPoboczna { get; set; }
+        public int PojemonscLVL { get; set; }
 
+        //upgrade kosztuje surowce, wiec trzeba je odjac z konta gracza
         public void Upgrade()
         {
-            if (lvl >= 5)
+            if (Lvl >= 5)
                 return;
-          
-            Gra.OdejmijSurowiec(SurowiecEnum.Zloto, lvl * wspolczynnikUlepszeniaGlowny);
-            pojemnosc += pojemonscLVL;
-            lvl++;
-       
+
+            Gra.OdejmijSurowiec(SurowiecEnum.Zloto, Lvl * WspolczynnikUlepszeniaGlowny);
+            Pojemnosc += PojemonscLVL;
+            Lvl++;
         }
         //funkcja, która sprawdza czy w ogóle gracza stać na ulepszenie budynku.
-        public bool MowliwoscUpgradu() => (Gra.IloscSurowca(SurowiecEnum.Zloto) - (lvl * wspolczynnikUlepszeniaGlowny) >= 0);
+        public bool MowliwoscUpgradu() => (Gra.IloscSurowca(SurowiecEnum.Zloto) - (Lvl * WspolczynnikUlepszeniaGlowny) >= 0);
     }
 }

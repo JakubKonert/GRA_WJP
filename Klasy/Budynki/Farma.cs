@@ -6,43 +6,43 @@ namespace GRA_WJP.Klasy.Budynki
 {
     public class Farma : IBudynek
     {
-        public Farma(int lvl, int pojemnosc, int pojemonscLVL,
-        int wspolczynnikUlepszeniaPoboczny, int wspolczynnikUlepszeniaGlowny,
-            String nazwaSurowcaGlowna, String nazwaSurowcaPoboczna)
+        public Farma(int Lvl, int Pojemnosc, int PojemonscLVL,
+        int WspolczynnikUlepszeniaPoboczny, int WspolczynnikUlepszeniaGlowny,
+            String NazwaSurowcaGlowna, String NazwaSurowcaPoboczna)
         {
-            this.lvl = lvl;
-            this.pojemnosc = pojemnosc;
-            this.nazwa = BudynekEnum.Farma;
-            this.wspolczynnikUlepszeniaPoboczny = wspolczynnikUlepszeniaPoboczny;
-            this.wspolczynnikUlepszeniaGlowny = wspolczynnikUlepszeniaGlowny;
-            this.pojemonscLVL = pojemonscLVL;
-
-            this.nazwaSurowcaGlowna = nazwaSurowcaGlowna;
-            this.nazwaSurowcaPoboczna = nazwaSurowcaPoboczna;
+            this.Lvl = Lvl;
+            this.Pojemnosc = Pojemnosc;
+            this.Nazwa = BudynekEnum.Farma;
+            this.WspolczynnikUlepszeniaPoboczny = WspolczynnikUlepszeniaPoboczny;
+            this.WspolczynnikUlepszeniaGlowny = WspolczynnikUlepszeniaGlowny;
+            this.PojemonscLVL = PojemonscLVL;
+            this.NazwaSurowcaGlowna = NazwaSurowcaGlowna;
+            this.NazwaSurowcaPoboczna = NazwaSurowcaPoboczna;
         }
 
-        public int lvl { get; set; }
-        public int pojemnosc { get; set; }
-        public BudynekEnum nazwa { get; set; }
+        public int Lvl { get; set; }
+        public int Pojemnosc { get; set; }
+        public BudynekEnum Nazwa { get; set; }
 
-        public int wspolczynnikUlepszeniaPoboczny { get; set; }
-        public int wspolczynnikUlepszeniaGlowny { get; set; }
-        public String nazwaSurowcaGlowna { get; set; }
-        public String nazwaSurowcaPoboczna { get; set; }
-        public int pojemonscLVL { get; set; }
+        public int WspolczynnikUlepszeniaPoboczny { get; set; }
+        public int WspolczynnikUlepszeniaGlowny { get; set; }
+        public String NazwaSurowcaGlowna { get; set; }
+        public String NazwaSurowcaPoboczna { get; set; }
+        public int PojemonscLVL { get; set; }
 
+        //upgrade kosztuje surowce, wiec trzeba je odjac z konta gracza
         public void Upgrade()
         {
-          if (lvl >= 5)
+            if (Lvl >= 5)
                 return;
 
-         Gra.OdejmijSurowiec(SurowiecEnum.Zloto, lvl * wspolczynnikUlepszeniaPoboczny);
-         Gra.OdejmijSurowiec(SurowiecEnum.Jedzenie, lvl * wspolczynnikUlepszeniaGlowny);
-         pojemnosc += pojemonscLVL;
-         lvl++;   
+            Gra.OdejmijSurowiec(SurowiecEnum.Zloto, Lvl * WspolczynnikUlepszeniaPoboczny);
+            Gra.OdejmijSurowiec(SurowiecEnum.Jedzenie, Lvl * WspolczynnikUlepszeniaGlowny);
+            Pojemnosc += PojemonscLVL;
+            Lvl++;
         }
-
-        public bool MowliwoscUpgradu() => (Gra.IloscSurowca(SurowiecEnum.Zloto) - (lvl * wspolczynnikUlepszeniaPoboczny) >= 0)
-            && (Gra.IloscSurowca(SurowiecEnum.Jedzenie) - (lvl * wspolczynnikUlepszeniaGlowny) >= 0);
+        //funkcja sprawdza czy upgrade jest w ogole mozliwy, a tym samym czy powinien byc dostepny dla gracza
+        public bool MowliwoscUpgradu() => (Gra.IloscSurowca(SurowiecEnum.Zloto) - (Lvl * WspolczynnikUlepszeniaPoboczny) >= 0)
+            && (Gra.IloscSurowca(SurowiecEnum.Jedzenie) - (Lvl * WspolczynnikUlepszeniaGlowny) >= 0);
     }
 }
