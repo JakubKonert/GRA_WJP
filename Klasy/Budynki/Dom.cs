@@ -6,7 +6,7 @@ namespace GRA_WJP.Klasy.Budynki
 {
     public class Dom : IBudynek
     {
-        public Dom(int Lvl, int Pojemnosc, int PojemonscLVL,
+        public Dom(int Lvl, int Pojemnosc, int PojemnoscLvl,
             int WspolczynnikUlepszeniaGlowny, int WspolczynnikUlepszeniaPoboczny,
             String NazwaSurowcaGlowna, String NazwaSurowcaPoboczna)
         {
@@ -15,7 +15,7 @@ namespace GRA_WJP.Klasy.Budynki
             this.Nazwa = BudynekEnum.Dom;
             this.WspolczynnikUlepszeniaGlowny = WspolczynnikUlepszeniaGlowny;
             this.WspolczynnikUlepszeniaPoboczny = WspolczynnikUlepszeniaPoboczny;
-            this.PojemonscLVL = PojemonscLVL;
+            this.PojemnoscLvl = PojemnoscLvl;
             this.NazwaSurowcaGlowna = NazwaSurowcaGlowna;
             this.NazwaSurowcaPoboczna = NazwaSurowcaPoboczna;
         }
@@ -27,7 +27,7 @@ namespace GRA_WJP.Klasy.Budynki
         public int WspolczynnikUlepszeniaPoboczny { get; set; }
         public String NazwaSurowcaGlowna { get; set; }
         public String NazwaSurowcaPoboczna { get; set; }
-        public int PojemonscLVL { get; set; }
+        public int PojemnoscLvl { get; set; }
 
         //upgrade kosztuje surowce, wiec trzeba je odjac z konta gracza
         public void Upgrade()
@@ -37,7 +37,7 @@ namespace GRA_WJP.Klasy.Budynki
 
             Gra.OdejmijSurowiec(SurowiecEnum.Drewno, Lvl * WspolczynnikUlepszeniaGlowny);
             Gra.OdejmijSurowiec(SurowiecEnum.Jedzenie, Lvl * WspolczynnikUlepszeniaPoboczny);
-            Pojemnosc += PojemonscLVL;
+            Pojemnosc += PojemnoscLvl;
             Lvl++;
         }
         //funkcja sprawdza czy upgrade jest w ogole dostepny, a tym samym mozliwy dla gracza

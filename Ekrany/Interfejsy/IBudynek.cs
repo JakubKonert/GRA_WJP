@@ -12,7 +12,7 @@ namespace GRA_WJP.Ekrany.Interfejsy
         BudynekEnum Nazwa { get; }
         int WspolczynnikUlepszeniaPoboczny { get; }
         int WspolczynnikUlepszeniaGlowny { get; }
-        int PojemonscLVL { get; set; }
+        int PojemnoscLvl { get; set; }
         String NazwaSurowcaGlowna { get; }
         String NazwaSurowcaPoboczna { get; }
         void Upgrade();

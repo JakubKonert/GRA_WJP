@@ -6,7 +6,7 @@ namespace GRA_WJP.Klasy.Budynki
 {
     public class Tartak : IBudynek
     {
-        public Tartak(int Lvl, int Pojemnosc, int PojemonscLVL, int WspolczynnikUlepszeniaPoboczny,
+        public Tartak(int Lvl, int Pojemnosc, int PojemnoscLvl, int WspolczynnikUlepszeniaPoboczny,
             int WspolczynnikUlepszeniaGlowny,
             String NazwaSurowcaGlowna, String NazwaSurowcaPoboczna)
         {
@@ -15,7 +15,7 @@ namespace GRA_WJP.Klasy.Budynki
             this.Nazwa = BudynekEnum.Tartak;
             this.WspolczynnikUlepszeniaPoboczny = WspolczynnikUlepszeniaPoboczny;
             this.WspolczynnikUlepszeniaGlowny = WspolczynnikUlepszeniaGlowny;
-            this.PojemonscLVL = PojemonscLVL;
+            this.PojemnoscLvl = PojemnoscLvl;
 
             this.NazwaSurowcaGlowna = NazwaSurowcaGlowna;
             this.NazwaSurowcaPoboczna = NazwaSurowcaPoboczna;
@@ -28,7 +28,7 @@ namespace GRA_WJP.Klasy.Budynki
         public String NazwaSurowcaPoboczna { get; }
         public int WspolczynnikUlepszeniaPoboczny { get; }
         public int WspolczynnikUlepszeniaGlowny { get; }
-        public int PojemonscLVL { get; set; }
+        public int PojemnoscLvl { get; set; }
 
         //upgrade kosztuje surowce, wiec trzeba je odjac z konta gracza
         public void Upgrade()
@@ -38,7 +38,7 @@ namespace GRA_WJP.Klasy.Budynki
 
             Gra.OdejmijSurowiec(SurowiecEnum.Zloto, Lvl * WspolczynnikUlepszeniaPoboczny);
             Gra.OdejmijSurowiec(SurowiecEnum.Drewno, Lvl * WspolczynnikUlepszeniaGlowny);
-            Pojemnosc += PojemonscLVL;
+            Pojemnosc += PojemnoscLvl;
             Lvl++;
         }
         //aby upgrade byl mozlwiwy, trzeba spelnic wymagane warunki w ilosci surowca

@@ -114,7 +114,8 @@ namespace GRA_WJP.Klasy
             else
             {
                 Surowce.First(s => s.JakaNazwa() == Surowiec).ZwiekszIloscSurowca(DodatkowaIloscSurowca);
-                if (Surowce.First(s => s.JakaNazwa() == Surowiec).IleSurowiec() < 0) Surowce.First(s => s.JakaNazwa() == Surowiec).UstawIloscSurowca(0);
+                if (Surowce.First(s => s.JakaNazwa() == Surowiec).IleSurowiec() < 0) Surowce.First(s => s.JakaNazwa() == Surowiec).
+                        UstawIloscSurowca(0);
                 return DodatkowaIloscSurowca;
             }
         }
@@ -190,7 +191,8 @@ namespace GRA_WJP.Klasy
                     if (TartakLvl > 1)
                     {
                         Budynki.First(b => b.Nazwa == BudynekEnum.Tartak).Lvl--;
-                        Budynki.First(b => b.Nazwa == BudynekEnum.Tartak).Pojemnosc -= 200;
+                        Budynki.First(b => b.Nazwa == BudynekEnum.Tartak).Pojemnosc -=
+                            Budynki.First(b => b.Nazwa == BudynekEnum.Tartak).PojemnoscLvl;
                     }
 
                     Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Drewno).UstawIloscSurowca(
@@ -208,7 +210,8 @@ namespace GRA_WJP.Klasy
                     if (FarmaLvl > 1)
                     {
                         Budynki.First(b => b.Nazwa == BudynekEnum.Farma).Lvl--;
-                        Budynki.First(b => b.Nazwa == BudynekEnum.Farma).Pojemnosc -= 200;
+                        Budynki.First(b => b.Nazwa == BudynekEnum.Farma).Pojemnosc -=
+                            Budynki.First(b => b.Nazwa == BudynekEnum.Farma).PojemnoscLvl;
                     }
 
                     Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Jedzenie).UstawIloscSurowca(
@@ -225,7 +228,8 @@ namespace GRA_WJP.Klasy
                     if (KopalniaLvl > 1)
                     {
                         Budynki.First(b => b.Nazwa == BudynekEnum.Kopalnia).Lvl--;
-                        Budynki.First(b => b.Nazwa == BudynekEnum.Kopalnia).Pojemnosc -= 200;
+                        Budynki.First(b => b.Nazwa == BudynekEnum.Kopalnia).Pojemnosc -= 
+                            Budynki.First(b => b.Nazwa == BudynekEnum.Kopalnia).PojemnoscLvl;
                     }
 
                     Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Zloto).UstawIloscSurowca(

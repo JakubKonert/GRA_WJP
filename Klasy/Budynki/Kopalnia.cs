@@ -6,14 +6,14 @@ namespace GRA_WJP.Klasy.Budynki
 {
     public class Kopalnia : IBudynek
     {
-        public Kopalnia(int Lvl, int Pojemnosc, int PojemonscLVL, int WspolczynnikUlepszeniaGlowny,
+        public Kopalnia(int Lvl, int Pojemnosc, int PojemnoscLvl , int WspolczynnikUlepszeniaGlowny,
             String NazwaSurowcaGlowna)
         {
             this.Lvl = Lvl;
             this.Pojemnosc = Pojemnosc;
             this.Nazwa = BudynekEnum.Kopalnia;
             this.WspolczynnikUlepszeniaGlowny = WspolczynnikUlepszeniaGlowny;
-            this.PojemonscLVL = PojemonscLVL;
+            this.PojemnoscLvl = PojemnoscLvl;
             this.NazwaSurowcaGlowna = NazwaSurowcaGlowna;
         }
 
@@ -25,7 +25,7 @@ namespace GRA_WJP.Klasy.Budynki
         public int WspolczynnikUlepszeniaPoboczny { get; set; }
         public String NazwaSurowcaGlowna { get; set; }
         public String NazwaSurowcaPoboczna { get; set; }
-        public int PojemonscLVL { get; set; }
+        public int PojemnoscLvl { get; set; }
 
         //upgrade kosztuje surowce, wiec trzeba je odjac z konta gracza
         public void Upgrade()
@@ -34,7 +34,7 @@ namespace GRA_WJP.Klasy.Budynki
                 return;
 
             Gra.OdejmijSurowiec(SurowiecEnum.Zloto, Lvl * WspolczynnikUlepszeniaGlowny);
-            Pojemnosc += PojemonscLVL;
+            Pojemnosc += PojemnoscLvl;
             Lvl++;
         }
         //funkcja, która sprawdza czy w ogóle gracza stać na ulepszenie budynku.
