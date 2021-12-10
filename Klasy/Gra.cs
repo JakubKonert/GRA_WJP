@@ -29,7 +29,7 @@ namespace GRA_WJP.Klasy
 
         private static int Populacja = 100;
         private static int Tura = 1;
-        private static int MaxTura = 20;
+        private static int MaxTura = 50;
 
         //Start gry
         private static int PopulacjaStartGry = 100;
@@ -175,7 +175,7 @@ namespace GRA_WJP.Klasy
         // <3 LINQ
         public static string ZdarzenieLosowe()
         {
-            if (Tura < 5 || Tura > 18)
+            if (Tura < 5 || Tura > 45)
                 return null;
 
             var Szansa = new Random().Next(1, 100);
