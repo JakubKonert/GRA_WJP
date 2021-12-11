@@ -170,7 +170,7 @@ namespace GRA_WJP.Klasy
         //3 stany gry, wygrana, przegrana lub kolejna tura
         public static MozliweKonceTuryEnum StanGry()
         {
-            if (IleDostepnaPopulacja() >= 1000) return MozliweKonceTuryEnum.Zwyciestwo;
+            if (IlePopulacja() >= 1000) return MozliweKonceTuryEnum.Zwyciestwo;
             else if ((Tura >= MaxTura) ||
                 (Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Jedzenie).IleSurowiec() <= 0) ||
                 (Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Drewno).IleSurowiec() <= 0))
