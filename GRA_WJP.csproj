@@ -72,6 +72,12 @@
     <Compile Include="Ekrany\KoniecForm.Designer.cs">
       <DependentUpon>KoniecForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ekrany\PauzaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ekrany\PauzaForm.Designer.cs">
+      <DependentUpon>PauzaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ekrany\PodsumowanieTuryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ekrany\KoniecForm.resx">
       <DependentUpon>KoniecForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ekrany\PauzaForm.resx">
+      <DependentUpon>PauzaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ekrany\PodsumowanieTuryForm.resx">
       <DependentUpon>PodsumowanieTuryForm.cs</DependentUpon>

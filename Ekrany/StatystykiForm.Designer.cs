@@ -37,7 +37,7 @@ namespace GRA_WJP.Ekrany
             // StatystykiTextLabel
             // 
             this.StatystykiTextLabel.AutoSize = true;
-            this.StatystykiTextLabel.Location = new System.Drawing.Point(340, 90);
+            this.StatystykiTextLabel.Location = new System.Drawing.Point(275, 86);
             this.StatystykiTextLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.StatystykiTextLabel.Name = "StatystykiTextLabel";
             this.StatystykiTextLabel.Size = new System.Drawing.Size(0, 24);
@@ -57,7 +57,7 @@ namespace GRA_WJP.Ekrany
             // StatystykiLabel
             // 
             this.StatystykiLabel.AutoSize = true;
-            this.StatystykiLabel.Location = new System.Drawing.Point(443, 30);
+            this.StatystykiLabel.Location = new System.Drawing.Point(421, 23);
             this.StatystykiLabel.Name = "StatystykiLabel";
             this.StatystykiLabel.Size = new System.Drawing.Size(86, 24);
             this.StatystykiLabel.TabIndex = 2;

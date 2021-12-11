@@ -29,7 +29,6 @@ namespace GRA_WJP.Ekrany
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BudynekForm));
             this.NazwaBudynkuLabel = new System.Windows.Forms.Label();
             this.LevelBudynkuButton = new System.Windows.Forms.Label();
             this.PojemnoscBudynkuLabel = new System.Windows.Forms.Label();
@@ -106,9 +105,8 @@ namespace GRA_WJP.Ekrany
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Wheat;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(682, 553);
+            this.ClientSize = new System.Drawing.Size(678, 549);
             this.ControlBox = false;
             this.Controls.Add(this.WyjscieBudynekButton);
             this.Controls.Add(this.WymaganiaUlepszeniaButton);

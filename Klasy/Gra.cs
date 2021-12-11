@@ -5,6 +5,7 @@ using GRA_WJP.Klasy.Budynki;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace GRA_WJP.Klasy
 {
@@ -37,6 +38,9 @@ namespace GRA_WJP.Klasy
         private static int LvlStartGry = 1;
         private static int IloscStartGry = 100;
         private static int PojemnoscStartGry = 200;
+
+        //wysłanie informacji o stanie surowcow
+        public static List<Surowiec> SurowceList() => Surowce;
 
         //Wyświetlanie okna klasy surowiec dla konretnego surowca (albo jedzenie, albo drewno itd.)
         public static void WyswietlSurowiec(IEkran IOknoRodzic, SurowiecEnum Surowiec)
@@ -164,8 +168,12 @@ namespace GRA_WJP.Klasy
         //3 stany gry, wygrana, przegrana lub kolejna tura
         public static MozliweKonceTuryEnum StanGry()
         {
-            return IlePopulacja() >= 1000 ? MozliweKonceTuryEnum.Zwyciestwo : Tura >= MaxTura ?
-                MozliweKonceTuryEnum.Przegrana : MozliweKonceTuryEnum.NastepnaTura;
+            if (IleDostepnaPopulacja() >= 1000) return MozliweKonceTuryEnum.Zwyciestwo;
+            else if ((Tura >= MaxTura) ||
+                (Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Jedzenie).IleSurowiec() <= 0) ||
+                (Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Drewno).IleSurowiec() <= 0))
+                return MozliweKonceTuryEnum.Przegrana;
+            else return MozliweKonceTuryEnum.NastepnaTura;
         }
 
         //generowanie i obsluga zdarzenia losowego, najpierw losowanie 25% na wystapienia zdarzenia
@@ -182,7 +190,6 @@ namespace GRA_WJP.Klasy
             if (Szansa > 25)
                 return null;
             var Zdarzenie = new Random().Next(0, 6);
-
             switch (Zdarzenie)
             {
                 case 1:
@@ -192,7 +199,7 @@ namespace GRA_WJP.Klasy
                     {
                         Budynki.First(b => b.Nazwa == BudynekEnum.Tartak).Lvl--;
                         Budynki.First(b => b.Nazwa == BudynekEnum.Tartak).Pojemnosc -=
-                            Budynki.First(b => b.Nazwa == BudynekEnum.Tartak).PojemnoscLvl;
+                        Budynki.First(b => b.Nazwa == BudynekEnum.Tartak).PojemnoscLvl;
                     }
 
                     Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Drewno).UstawIloscSurowca(
@@ -228,8 +235,8 @@ namespace GRA_WJP.Klasy
                     if (KopalniaLvl > 1)
                     {
                         Budynki.First(b => b.Nazwa == BudynekEnum.Kopalnia).Lvl--;
-                        Budynki.First(b => b.Nazwa == BudynekEnum.Kopalnia).Pojemnosc -= 
-                            Budynki.First(b => b.Nazwa == BudynekEnum.Kopalnia).PojemnoscLvl;
+                        Budynki.First(b => b.Nazwa == BudynekEnum.Kopalnia).Pojemnosc -=
+                        Budynki.First(b => b.Nazwa == BudynekEnum.Kopalnia).PojemnoscLvl;
                     }
 
                     Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Zloto).UstawIloscSurowca(
@@ -258,7 +265,7 @@ namespace GRA_WJP.Klasy
                     Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Drewno).UstawIloscSurowca(
                         (int)(Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Drewno).IleSurowiec() * 0.85));
 
-                    return "Rabież \n\nTwoja osada została splądrowana:\nTracisz po 15% każdego surowca";
+                    return "Grabież \n\nTwoja osada została splądrowana:\nTracisz po 15% każdego surowca";
             }
             return null;
         }

@@ -36,7 +36,7 @@ namespace GRA_WJP.Ekrany
             // OpisLabel
             // 
             this.OpisLabel.AutoSize = true;
-            this.OpisLabel.Location = new System.Drawing.Point(13, 9);
+            this.OpisLabel.Location = new System.Drawing.Point(29, 29);
             this.OpisLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.OpisLabel.Name = "OpisLabel";
             this.OpisLabel.Size = new System.Drawing.Size(72, 20);
@@ -45,9 +45,10 @@ namespace GRA_WJP.Ekrany
             // 
             // PowrotMenuButton
             // 
-            this.PowrotMenuButton.Location = new System.Drawing.Point(405, 680);
+            this.PowrotMenuButton.Location = new System.Drawing.Point(400, 660);
+            this.PowrotMenuButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PowrotMenuButton.Name = "PowrotMenuButton";
-            this.PowrotMenuButton.Size = new System.Drawing.Size(190, 60);
+            this.PowrotMenuButton.Size = new System.Drawing.Size(200, 62);
             this.PowrotMenuButton.TabIndex = 2;
             this.PowrotMenuButton.Text = "Powrót do menu głównego";
             this.PowrotMenuButton.UseVisualStyleBackColor = true;
@@ -66,7 +67,7 @@ namespace GRA_WJP.Ekrany
             this.Cursor = System.Windows.Forms.Cursors.Help;
             this.Font = new System.Drawing.Font("Montserrat Subrayada", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CelGryForm";

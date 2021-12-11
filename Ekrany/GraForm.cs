@@ -78,5 +78,11 @@ namespace GRA_WJP.Ekrany
                 new KoniecForm(OknoRodzic).ShowDialog();
             }
         }
+
+        private void GraForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 'q') new PauzaForm(OknoRodzic,this).ShowDialog(); 
+
+        }
     }
 }
