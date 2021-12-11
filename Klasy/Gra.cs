@@ -22,10 +22,10 @@ namespace GRA_WJP.Klasy
         //trzymanie wszystkich budynkow w liscie, pozniejsze latwiejsze operowanie na nich za pomoca linq
         private static List<IBudynek> Budynki = new List<IBudynek>()
         {
-            new Dom(1, 200, 200, 130, 130, "Drewno", "Jedzenie"),
-            new Tartak(1, 200, 200, 130,130, "Drewno", "Złoto"),
-            new Farma(1, 200, 200, 130, 130, "Jedzenie", "Złoto"),
-            new Kopalnia(1, 200, 200, 130, "Złoto")
+            new Dom(1, 200, 200, 160, 160, "Drewno", "Jedzenie"),
+            new Tartak(1, 200, 200, 140,140, "Drewno", "Złoto"),
+            new Farma(1, 200, 200, 140, 140, "Jedzenie", "Złoto"),
+            new Kopalnia(1, 200, 200, 140, "Złoto")
         };
 
         private static int Populacja = 100;
