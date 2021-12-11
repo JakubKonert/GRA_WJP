@@ -14,8 +14,8 @@ namespace GRA_WJP.Ekrany
             //gracza na czym w ogole polega gra
             OpisLabel.Text = "Witaj Graczu. !\n\n" +
                 "Przed tobą stoi wyzwanie zarządzania wioską i osiągnięcie tytułowej populacji, ale uważaj " +
-                "co raz bardziej\nrozwijająca się osada będzie pochłaniać co raz większe ilości jedzenia oraz " +
-                "co raz większą ilość drewna\nzużywać na opał. Aby temu przeciwdziałać, musisz rozsądnie dysponować" +
+                "coraz bardziej\nrozwijająca się osada będzie pochłaniać coraz większe ilości jedzenia oraz " +
+                "coraz większą ilość drewna\nzużywać na opał. Aby temu przeciwdziałać, musisz rozsądnie dysponować" +
                 " ludźmi i przydzielać ich do\nodpowiednich budynków. Ponadto, czekają na ciebie różne " +
                 "nieprzewidziane smutne wydarzenia, które mają\nza zadanie utrudnić ci jeszcze bardziej " +
                 "osiągnięcie wymaganego celu.\n\n" +
@@ -24,8 +24,8 @@ namespace GRA_WJP.Ekrany
                 "1. Wygrana następuje po osiągnięciu 1000 populacji w dostępnym limicie tur.\n" +
                 "2. Przegrana następuje gdy:\n" +
                 "A: Nie osiągniesz 1000 populacji w dostępnym limicie tur.\n" +
-                "B: Twoja żywność spadnie do 0.\n" +
-                "C: Twoje drewno spadnie do 0.\n" +
+                "B: Twoja żywność spadnie do 0. (Nie pozwół, aby ta wartość kiedykolwiek wystąpiła na koniec twojej rundy.)\n" +
+                "C: Twoje drewno spadnie do 0. (Nie pozwół, aby ta wartość kiedykolwiek wystąpiła na koniec twojej rundy.)\n" +
                 "2. Na osiągnięcie celu masz 50 Tur.\n" +
                 "3.	Po włączeniu gry, w górnej części ekranu widnieje panel gry. Pozycje " +
                 "\\  Jedzenie \\  Drewno \\ Złoto to\nprzyciski, po których wciśnięciu możesz wyznaczyć " +

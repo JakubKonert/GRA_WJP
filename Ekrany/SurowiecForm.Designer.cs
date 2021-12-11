@@ -29,12 +29,14 @@ namespace GRA_WJP.Ekrany
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SurowiecForm));
             this.SurowiecNazwaLabel = new System.Windows.Forms.Label();
             this.DostepnaPopulacjaSuwakLabel = new System.Windows.Forms.Label();
             this.PopulacjaTrackBar = new System.Windows.Forms.TrackBar();
             this.PopulacjaPrzydzielonaSuwakLabel = new System.Windows.Forms.Label();
             this.WyjscieSurowiecButton = new System.Windows.Forms.Button();
             this.Wartosc0Label = new System.Windows.Forms.Label();
+            this.AnulujButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PopulacjaTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,7 +84,7 @@ namespace GRA_WJP.Ekrany
             // WyjscieSurowiecButton
             // 
             this.WyjscieSurowiecButton.Font = new System.Drawing.Font("Montserrat Subrayada", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WyjscieSurowiecButton.Location = new System.Drawing.Point(281, 154);
+            this.WyjscieSurowiecButton.Location = new System.Drawing.Point(281, 146);
             this.WyjscieSurowiecButton.Name = "WyjscieSurowiecButton";
             this.WyjscieSurowiecButton.Size = new System.Drawing.Size(148, 40);
             this.WyjscieSurowiecButton.TabIndex = 5;
@@ -100,13 +102,26 @@ namespace GRA_WJP.Ekrany
             this.Wartosc0Label.TabIndex = 6;
             this.Wartosc0Label.Text = "0";
             // 
+            // AnulujButton
+            // 
+            this.AnulujButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AnulujButton.BackgroundImage")));
+            this.AnulujButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.AnulujButton.Cursor = System.Windows.Forms.Cursors.No;
+            this.AnulujButton.Location = new System.Drawing.Point(435, 146);
+            this.AnulujButton.Name = "AnulujButton";
+            this.AnulujButton.Size = new System.Drawing.Size(40, 40);
+            this.AnulujButton.TabIndex = 7;
+            this.AnulujButton.UseVisualStyleBackColor = true;
+            this.AnulujButton.Click += new System.EventHandler(this.AnulujButton_Click);
+            // 
             // SurowiecForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Wheat;
-            this.ClientSize = new System.Drawing.Size(714, 235);
+            this.ClientSize = new System.Drawing.Size(710, 231);
             this.ControlBox = false;
+            this.Controls.Add(this.AnulujButton);
             this.Controls.Add(this.Wartosc0Label);
             this.Controls.Add(this.WyjscieSurowiecButton);
             this.Controls.Add(this.PopulacjaPrzydzielonaSuwakLabel);
@@ -136,5 +151,6 @@ namespace GRA_WJP.Ekrany
         private System.Windows.Forms.Button WyjscieSurek;
         private System.Windows.Forms.Button WyjscieSurowiecButton;
         private System.Windows.Forms.Label Wartosc0Label;
+        private System.Windows.Forms.Button AnulujButton;
     }
 }

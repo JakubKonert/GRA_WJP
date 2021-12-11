@@ -42,5 +42,11 @@ namespace GRA_WJP.Ekrany
             OdswiezEkran();
             this.Close();
         }
+
+        private void AnulujButton_Click(object sender, EventArgs e)
+        {
+            OdswiezEkran();
+            this.Close();
+        }
     }
 }
