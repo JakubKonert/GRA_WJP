@@ -189,9 +189,10 @@ namespace GRA_WJP.Klasy
             var Szansa = new Random().Next(1, 100);
             if (Szansa > 25)
                 return null;
-            var Zdarzenie = new Random().Next(0, 6);
+            var Zdarzenie = new Random().Next(1, 6);
+
             switch (Zdarzenie)
-            {
+            {      
                 case 1:
                     //Spalony Tartak
                     var TartakLvl = Budynki.First(b => b.Nazwa == BudynekEnum.Tartak).Lvl;
