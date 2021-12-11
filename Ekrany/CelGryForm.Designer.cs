@@ -45,8 +45,10 @@ namespace GRA_WJP.Ekrany
             // 
             // PowrotMenuButton
             // 
+            this.PowrotMenuButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PowrotMenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.PowrotMenuButton.Location = new System.Drawing.Point(400, 660);
-            this.PowrotMenuButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PowrotMenuButton.Margin = new System.Windows.Forms.Padding(2);
             this.PowrotMenuButton.Name = "PowrotMenuButton";
             this.PowrotMenuButton.Size = new System.Drawing.Size(200, 62);
             this.PowrotMenuButton.TabIndex = 2;
@@ -67,7 +69,7 @@ namespace GRA_WJP.Ekrany
             this.Cursor = System.Windows.Forms.Cursors.Help;
             this.Font = new System.Drawing.Font("Montserrat Subrayada", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CelGryForm";

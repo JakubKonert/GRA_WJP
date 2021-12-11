@@ -83,8 +83,10 @@ namespace GRA_WJP.Ekrany
             // 
             // WyjscieSurowiecButton
             // 
+            this.WyjscieSurowiecButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.WyjscieSurowiecButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.WyjscieSurowiecButton.Font = new System.Drawing.Font("Montserrat Subrayada", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WyjscieSurowiecButton.Location = new System.Drawing.Point(281, 146);
+            this.WyjscieSurowiecButton.Location = new System.Drawing.Point(282, 138);
             this.WyjscieSurowiecButton.Name = "WyjscieSurowiecButton";
             this.WyjscieSurowiecButton.Size = new System.Drawing.Size(148, 40);
             this.WyjscieSurowiecButton.TabIndex = 5;
@@ -107,7 +109,8 @@ namespace GRA_WJP.Ekrany
             this.AnulujButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AnulujButton.BackgroundImage")));
             this.AnulujButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.AnulujButton.Cursor = System.Windows.Forms.Cursors.No;
-            this.AnulujButton.Location = new System.Drawing.Point(435, 146);
+            this.AnulujButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.AnulujButton.Location = new System.Drawing.Point(436, 138);
             this.AnulujButton.Name = "AnulujButton";
             this.AnulujButton.Size = new System.Drawing.Size(40, 40);
             this.AnulujButton.TabIndex = 7;
@@ -119,7 +122,7 @@ namespace GRA_WJP.Ekrany
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Wheat;
-            this.ClientSize = new System.Drawing.Size(710, 231);
+            this.ClientSize = new System.Drawing.Size(706, 227);
             this.ControlBox = false;
             this.Controls.Add(this.AnulujButton);
             this.Controls.Add(this.Wartosc0Label);

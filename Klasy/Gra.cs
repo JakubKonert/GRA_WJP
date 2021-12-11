@@ -31,6 +31,8 @@ namespace GRA_WJP.Klasy
         private static int Populacja = 100;
         private static int Tura = 1;
         private static int MaxTura = 50;
+        private static int ZdarzenieWczesniejsze=0;
+        private static int Zdarzenie=0;
 
         //Start gry
         private static int PopulacjaStartGry = 100;
@@ -187,10 +189,14 @@ namespace GRA_WJP.Klasy
                 return null;
 
             var Szansa = new Random().Next(1, 100);
-            if (Szansa > 25)
+            if (Szansa > 15)
                 return null;
-            var Zdarzenie = new Random().Next(1, 6);
-
+            do
+            {
+                Zdarzenie = new Random().Next(1, 6);
+            }
+            while (ZdarzenieWczesniejsze == Zdarzenie);
+            ZdarzenieWczesniejsze = Zdarzenie;
             switch (Zdarzenie)
             {      
                 case 1:

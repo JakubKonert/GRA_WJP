@@ -35,6 +35,8 @@ namespace GRA_WJP.Ekrany
             // 
             // ZapisWynikuButton
             // 
+            this.ZapisWynikuButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ZapisWynikuButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ZapisWynikuButton.Font = new System.Drawing.Font("Montserrat Subrayada", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ZapisWynikuButton.Location = new System.Drawing.Point(65, 70);
             this.ZapisWynikuButton.Name = "ZapisWynikuButton";

@@ -69,6 +69,8 @@ namespace GRA_WJP.Ekrany
             // 
             // UpgradeButton
             // 
+            this.UpgradeButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UpgradeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.UpgradeButton.Location = new System.Drawing.Point(280, 350);
             this.UpgradeButton.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.UpgradeButton.Name = "UpgradeButton";
@@ -90,6 +92,8 @@ namespace GRA_WJP.Ekrany
             // 
             // WyjscieBudynekButton
             // 
+            this.WyjscieBudynekButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.WyjscieBudynekButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.WyjscieBudynekButton.Location = new System.Drawing.Point(280, 500);
             this.WyjscieBudynekButton.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.WyjscieBudynekButton.Name = "WyjscieBudynekButton";
@@ -106,7 +110,7 @@ namespace GRA_WJP.Ekrany
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Wheat;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(678, 549);
+            this.ClientSize = new System.Drawing.Size(670, 541);
             this.ControlBox = false;
             this.Controls.Add(this.WyjscieBudynekButton);
             this.Controls.Add(this.WymaganiaUlepszeniaButton);

@@ -37,7 +37,7 @@ namespace GRA_WJP.Ekrany
             // StatystykiTextLabel
             // 
             this.StatystykiTextLabel.AutoSize = true;
-            this.StatystykiTextLabel.Location = new System.Drawing.Point(275, 86);
+            this.StatystykiTextLabel.Location = new System.Drawing.Point(250, 85);
             this.StatystykiTextLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.StatystykiTextLabel.Name = "StatystykiTextLabel";
             this.StatystykiTextLabel.Size = new System.Drawing.Size(0, 24);
@@ -45,6 +45,8 @@ namespace GRA_WJP.Ekrany
             // 
             // PowrotMenuButton
             // 
+            this.PowrotMenuButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PowrotMenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.PowrotMenuButton.Location = new System.Drawing.Point(350, 650);
             this.PowrotMenuButton.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.PowrotMenuButton.Name = "PowrotMenuButton";
@@ -57,7 +59,7 @@ namespace GRA_WJP.Ekrany
             // StatystykiLabel
             // 
             this.StatystykiLabel.AutoSize = true;
-            this.StatystykiLabel.Location = new System.Drawing.Point(421, 23);
+            this.StatystykiLabel.Location = new System.Drawing.Point(450, 30);
             this.StatystykiLabel.Name = "StatystykiLabel";
             this.StatystykiLabel.Size = new System.Drawing.Size(86, 24);
             this.StatystykiLabel.TabIndex = 2;

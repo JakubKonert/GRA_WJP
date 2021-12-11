@@ -78,6 +78,7 @@ namespace GRA_WJP.Ekrany
             // 
             // DrewnoButton
             // 
+            this.DrewnoButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DrewnoButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.DrewnoButton.Font = new System.Drawing.Font("Montserrat Subrayada", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DrewnoButton.Location = new System.Drawing.Point(613, 3);
@@ -90,6 +91,7 @@ namespace GRA_WJP.Ekrany
             // 
             // ZlotoButton
             // 
+            this.ZlotoButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ZlotoButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ZlotoButton.Font = new System.Drawing.Font("Montserrat Subrayada", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ZlotoButton.Location = new System.Drawing.Point(858, 3);
@@ -175,6 +177,7 @@ namespace GRA_WJP.Ekrany
             // KopalniaButton
             // 
             this.KopalniaButton.BackColor = System.Drawing.Color.Transparent;
+            this.KopalniaButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.KopalniaButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.KopalniaButton.Font = new System.Drawing.Font("Montserrat Subrayada", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KopalniaButton.ForeColor = System.Drawing.Color.Wheat;
@@ -190,6 +193,7 @@ namespace GRA_WJP.Ekrany
             // KoniecTuryButton
             // 
             this.KoniecTuryButton.BackColor = System.Drawing.Color.Wheat;
+            this.KoniecTuryButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.KoniecTuryButton.Font = new System.Drawing.Font("Montserrat Subrayada", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KoniecTuryButton.Location = new System.Drawing.Point(1030, 740);
             this.KoniecTuryButton.Name = "KoniecTuryButton";
