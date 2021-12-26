@@ -12,7 +12,6 @@ namespace GRA_WJP
         [STAThread]
         static void Main()
         {
-            //cóż można powiedzieć? start gry i tyle
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new StartMenuForm());

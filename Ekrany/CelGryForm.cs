@@ -3,6 +3,10 @@ using System.Windows.Forms;
 
 namespace GRA_WJP.Ekrany
 {
+    /// <summary>
+    /// Okno, w którym po krótko jest opisane o co chodzi w grze oraz wytłumaczone jej główne
+    /// funkcjonalności
+    /// </summary>
     public partial class CelGryForm : Form
     {
         private Form OknoRodzic;
@@ -10,8 +14,8 @@ namespace GRA_WJP.Ekrany
         {
             this.OknoRodzic = OknoRodzic;
             InitializeComponent();
-            //opis slowny gry, wpisany prosto w kod aby niepotrzebnie nie kombinowac, a tylko zaznajomic
-            //gracza na czym w ogole polega gra
+            //Opis słowny gry, wpisany prosto w kod aby niepotrzebnie nie kombinowac, a tylko
+            //zaznajomić gracza na czym w ogóle polega gra
             OpisLabel.Text = "Witaj Graczu. !\n\n" +
                 "Przed tobą stoi wyzwanie zarządzania wioską i osiągnięcie tytułowej populacji, ale uważaj " +
                 "coraz bardziej\nrozwijająca się osada będzie pochłaniać coraz większe ilości jedzenia oraz " +
@@ -44,7 +48,7 @@ namespace GRA_WJP.Ekrany
                 "Uwaga! Kliknięcie opcji \"Powrót do menu\" lub \"Wyjście z gry\" NIE powoduje zapisu stanu gry.\n\n" +
                 "Powodzenia !!!";
         }
-
+        /**Zamknięcie okna dotyczącego opisu gry*/
         private void PowrotMenuButton_Click(object sender, EventArgs e)
         {
             OknoRodzic.Visible = true;

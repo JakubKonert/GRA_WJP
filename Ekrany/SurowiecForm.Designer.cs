@@ -151,7 +151,6 @@ namespace GRA_WJP.Ekrany
         private System.Windows.Forms.Label DostepnaPopulacjaSuwakLabel;
         private System.Windows.Forms.TrackBar PopulacjaTrackBar;
         private System.Windows.Forms.Label PopulacjaPrzydzielonaSuwakLabel;
-        private System.Windows.Forms.Button WyjscieSurek;
         private System.Windows.Forms.Button WyjscieSurowiecButton;
         private System.Windows.Forms.Label Wartosc0Label;
         private System.Windows.Forms.Button AnulujButton;

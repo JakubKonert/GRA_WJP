@@ -4,45 +4,71 @@ using System;
 
 namespace GRA_WJP.Klasy.Budynki
 {
+    /// <summary>
+    /// Klasa odpowiedzialna za stworzenie obiektu budynku Tartak
+    /// Dziedziczy po interfejsie IBudynek
+    /// </summary>
     public class Tartak : IBudynek
     {
-        public Tartak(int Lvl, int Pojemnosc, int PojemnoscLvl, int WspolczynnikUlepszeniaPoboczny,
-            int WspolczynnikUlepszeniaGlowny,
+        /**Konstruktor klasy Tartak, przypisuje konretne wartości polom tej klasy*/
+        public Tartak(int lvl, int pojemnosc, int pojemnoscLvl, int wspolczynnikUlepszeniaPoboczny,
+            int wspolczynnikUlepszeniaGlowny,
             String NazwaSurowcaGlowna, String NazwaSurowcaPoboczna)
         {
-            this.Lvl = Lvl;
-            this.Pojemnosc = Pojemnosc;
+            this.lvl = lvl;
+            this.pojemnosc = pojemnosc;
             this.Nazwa = BudynekEnum.Tartak;
-            this.WspolczynnikUlepszeniaPoboczny = WspolczynnikUlepszeniaPoboczny;
-            this.WspolczynnikUlepszeniaGlowny = WspolczynnikUlepszeniaGlowny;
-            this.PojemnoscLvl = PojemnoscLvl;
+            this.wspolczynnikUlepszeniaPoboczny = wspolczynnikUlepszeniaPoboczny;
+            this.wspolczynnikUlepszeniaGlowny = wspolczynnikUlepszeniaGlowny;
+            this.pojemnoscLvl = pojemnoscLvl;
 
             this.NazwaSurowcaGlowna = NazwaSurowcaGlowna;
             this.NazwaSurowcaPoboczna = NazwaSurowcaPoboczna;
         }
 
-        public int Lvl { get; set; }
-        public int Pojemnosc { get; set; }
-        public BudynekEnum Nazwa { get; }
-        public String NazwaSurowcaGlowna { get; }
-        public String NazwaSurowcaPoboczna { get; }
-        public int WspolczynnikUlepszeniaPoboczny { get; }
-        public int WspolczynnikUlepszeniaGlowny { get; }
-        public int PojemnoscLvl { get; set; }
+        /**Pole odpowiedzialne za lvl Tartaku*/
+        public int lvl { get; set; }
 
-        //upgrade kosztuje surowce, wiec trzeba je odjac z konta gracza
+        /**Pole odpowiedzialne za pojemnosc Tartaku*/
+        public int pojemnosc { get; set; }
+
+        /**Pole odpowiedzialne za nazwę Tartaku*/
+        public BudynekEnum Nazwa { get; }
+
+        /**Pole odpowiedzialne za nazwę głównego surowca potrzebnego do ulepszenia Tartaku*/
+        public String NazwaSurowcaGlowna { get; }
+
+        /**Pole odpowiedzialne za nazwę pobocznego surowca potrzebnego do ulepszenia Tartaku*/
+        public String NazwaSurowcaPoboczna { get; }
+
+        /**Pole odpowiedzialne za współczynnik ceny w głównym surowca potrzebnego do ulepszenia 
+         * Tartaku*/
+        public int wspolczynnikUlepszeniaPoboczny { get; }
+
+        /**Pole odpowiedzialne za współczynnik ceny w pobocznego surowca potrzebnego do ulepszenia
+         * Tartaku*/
+        public int wspolczynnikUlepszeniaGlowny { get; }
+
+        /**Pole odpowiedzialne za ilość zwiększania pojemności Tartaku co lvl*/
+        public int pojemnoscLvl { get; set; }
+
+        /**Funkcja odpowiedzialna za odejmowanie surowców z "konta" gracza, o ile budynek nie 
+         * posiada już maksymalnego lvl. Ponadto zwiększa ilość pojemności w Tartaku oraz zwiększa 
+         * jego lvl*/
         public void Upgrade()
         {
-            if (Lvl >= 5)
+            if (lvl >= 5)
                 return;
 
-            Gra.OdejmijSurowiec(SurowiecEnum.Zloto, Lvl * WspolczynnikUlepszeniaPoboczny);
-            Gra.OdejmijSurowiec(SurowiecEnum.Drewno, Lvl * WspolczynnikUlepszeniaGlowny);
-            Pojemnosc += PojemnoscLvl;
-            Lvl++;
+            Gra.OdejmijSurowiec(SurowiecEnum.Zloto, lvl * wspolczynnikUlepszeniaPoboczny);
+            Gra.OdejmijSurowiec(SurowiecEnum.Drewno, lvl * wspolczynnikUlepszeniaGlowny);
+            pojemnosc += pojemnoscLvl;
+            lvl++;
         }
-        //aby upgrade byl mozlwiwy, trzeba spelnic wymagane warunki w ilosci surowca
-        public bool MowliwoscUpgradu() => (Gra.IloscSurowca(SurowiecEnum.Zloto) - (Lvl * WspolczynnikUlepszeniaPoboczny) >= 0)
-            && (Gra.IloscSurowca(SurowiecEnum.Drewno) - (Lvl * WspolczynnikUlepszeniaGlowny) >= 0);
+        
+        /**Funkcja odpowiedzialna za sprawdzenie, czy gracza stać na ulepszenie Tartaku*/
+        public bool MowliwoscUpgradu() => (Gra.IloscSurowca(SurowiecEnum.Zloto) 
+            - (lvl * wspolczynnikUlepszeniaPoboczny) >= 0) && 
+            (Gra.IloscSurowca(SurowiecEnum.Drewno) - (lvl * wspolczynnikUlepszeniaGlowny) >= 0);
     }
 }

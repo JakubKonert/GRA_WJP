@@ -4,40 +4,65 @@ using System;
 
 namespace GRA_WJP.Klasy.Budynki
 {
+    /// <summary>
+    /// Klasa odpowiedzialna stworzenie obiektu budynku Kopalnia
+    /// Dziedziczy po interfejsie IBudynek
+    /// </summary>
     public class Kopalnia : IBudynek
     {
-        public Kopalnia(int Lvl, int Pojemnosc, int PojemnoscLvl , int WspolczynnikUlepszeniaGlowny,
-            String NazwaSurowcaGlowna)
+        /**Konstruktor klasy Kopalnia, przypisuje konretne wartości polom tej klasy*/
+        public Kopalnia(int lvl, int pojemnosc, int pojemnoscLvl ,
+            int wspolczynnikUlepszeniaGlowny, String NazwaSurowcaGlowna)
         {
-            this.Lvl = Lvl;
-            this.Pojemnosc = Pojemnosc;
+            this.lvl = lvl;
+            this.pojemnosc = pojemnosc;
             this.Nazwa = BudynekEnum.Kopalnia;
-            this.WspolczynnikUlepszeniaGlowny = WspolczynnikUlepszeniaGlowny;
-            this.PojemnoscLvl = PojemnoscLvl;
+            this.wspolczynnikUlepszeniaGlowny = wspolczynnikUlepszeniaGlowny;
+            this.pojemnoscLvl = pojemnoscLvl;
             this.NazwaSurowcaGlowna = NazwaSurowcaGlowna;
         }
 
-        public int Lvl { get; set; }
-        public int Pojemnosc { get; set; }
+        /**Pole odpowiedzialne za lvl Kopalni*/
+        public int lvl { get; set; }
+
+        /**Pole odpowiedzialne za pojemnosc Kopalni*/
+        public int pojemnosc { get; set; }
+
+        /**Pole odpowiedzialne za nazwę Kopalni*/
         public BudynekEnum Nazwa { get; set; }
 
-        public int WspolczynnikUlepszeniaGlowny { get; set; }
-        public int WspolczynnikUlepszeniaPoboczny { get; set; }
-        public String NazwaSurowcaGlowna { get; set; }
-        public String NazwaSurowcaPoboczna { get; set; }
-        public int PojemnoscLvl { get; set; }
+        /**Pole odpowiedzialne za współczynnik ceny w głównym surowca potrzebnego do ulepszenia
+         * Kopalni*/
+        public int wspolczynnikUlepszeniaGlowny { get; set; }
 
-        //upgrade kosztuje surowce, wiec trzeba je odjac z konta gracza
+        /**Pole odpowiedzialne za współczynnik ceny w pobocznego surowca potrzebnego do ulepszenia
+         * Kopalni*/
+        public int wspolczynnikUlepszeniaPoboczny { get; set; }
+ 
+        /**Pole odpowiedzialne za nazwę głównego surowca potrzebnego do ulepszenia Kopalni*/
+        public String NazwaSurowcaGlowna { get; set; }
+
+        /**Pole odpowiedzialne za nazwę pobocznego surowca potrzebnego do ulepszenia Kopalni*/
+        public String NazwaSurowcaPoboczna { get; set; }
+
+        /**Pole odpowiedzialne za ilość zwiększania pojemności Kopalni co lvl*/
+        public int pojemnoscLvl { get; set; }
+
+        /**Funkcja odpowiedzialna za odejmowanie surowców z "konta" gracza, o ile budynek nie
+         * posiada już maksymalnego lvl. Ponadto zwiększa ilość pojemności w Kopalnia oraz 
+         * zwiększa jego lvl*/
         public void Upgrade()
         {
-            if (Lvl >= 5)
+            if (lvl >= 5)
                 return;
 
-            Gra.OdejmijSurowiec(SurowiecEnum.Zloto, Lvl * WspolczynnikUlepszeniaGlowny);
-            Pojemnosc += PojemnoscLvl;
-            Lvl++;
+            Gra.OdejmijSurowiec(SurowiecEnum.Zloto, lvl * wspolczynnikUlepszeniaGlowny);
+            pojemnosc += pojemnoscLvl;
+            lvl++;
         }
-        //funkcja, która sprawdza czy w ogóle gracza stać na ulepszenie budynku.
-        public bool MowliwoscUpgradu() => (Gra.IloscSurowca(SurowiecEnum.Zloto) - (Lvl * WspolczynnikUlepszeniaGlowny) >= 0);
+
+        /**Funkcja odpowiedzialna za sprawdzenie, czy gracza stać na ulepszenie Kopalni*/
+        public bool MowliwoscUpgradu() => (Gra.IloscSurowca(SurowiecEnum.Zloto)
+            - (lvl * wspolczynnikUlepszeniaGlowny) >= 0);
     }
 }

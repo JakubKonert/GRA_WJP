@@ -2,37 +2,53 @@
 
 namespace GRA_WJP.Klasy
 {
+    /// <summary>
+    /// Klasa odpowiedzialna za stworzenie nowego surowca
+    /// </summary>
     public class Surowiec
     {
-        //funkcje i pola samoopisuja sie
-        public Surowiec(int Ilosc, SurowiecEnum Nazwa)
+        /**Konstruktor klasy odpowiedzialny za przypisanie wartości do pól konkretnego obiektu*/
+        public Surowiec(int ilosc, SurowiecEnum Nazwa)
         {
-            this.Ilosc = Ilosc;
+            this.ilosc = ilosc;
             this.Nazwa = Nazwa;
         }
-        private int Ilosc { get; set; }
+
+        /**Pole odpowiedzialne za ilość danego surowca*/
+        private int ilosc { get; set; }
+
+        /**Pole odpowiedzialne za nazwę danego surowca*/
         private SurowiecEnum Nazwa { get; }
-        private int PrzydzielonaPopulacja { get; set; }
 
+        /**Pole odpowiedzialne za ilość przydzielonej populacji do danego surowca*/
+        private int przydzielonaPopulacja { get; set; }
+
+        /**Pole odpowiedzialne za nazwę danego surowca*/
         public SurowiecEnum JakaNazwa() => Nazwa;
-        public void ZmienIloscPrzydzielonejPopulacji(int Wartosc)
+
+        /**Funkcja odpowiedzialna za przypisanie konkretnej wartości surowca*/
+        public void UstawIloscSurowca(int ilosc)
         {
-            PrzydzielonaPopulacja += Wartosc;
+            this.ilosc = ilosc;
         }
 
-        public void UstawIloscSurowca(int Ilosc)
+        /**Funkcja odpowiedzialna za przypisanie konkretnej wartości ilości przypisanych
+         * pracowników do danego surowca*/
+        public void UstawIloscPrzydzielonejPopulacji(int ilosc)
         {
-            this.Ilosc = Ilosc;
+            this.przydzielonaPopulacja = ilosc;
         }
-        public void UstawIloscPrzydzielonejPopulacji(int Ilosc)
+
+        /**Funkcja odpowiedzialna za dostęp do zmiennej "przydzielonaPopulacja"*/
+        public int IlePrzydzielonaPopulacja() => przydzielonaPopulacja;
+
+        /**Funkcja odpowiedzialna za dostęp do zmiennej "ilosc*/
+        public int IleSurowiec() => ilosc;
+
+        /**Funkcja odpowiedzialna za dodanie konkretnej wartości do pola "ilosc" surowca*/
+        public void ZwiekszIloscSurowca(int wartosc)
         {
-            this.PrzydzielonaPopulacja = Ilosc;
-        }
-        public int IlePrzydzielonaPopulacja() => PrzydzielonaPopulacja;
-        public int IleSurowiec() => Ilosc;
-        public void ZwiekszIloscSurowca(int Wartosc)
-        {
-            Ilosc += Wartosc;
+            ilosc += wartosc;
         }
     }
 }

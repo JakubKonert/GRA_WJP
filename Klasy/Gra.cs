@@ -5,13 +5,15 @@ using GRA_WJP.Klasy.Budynki;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Forms;
 
 namespace GRA_WJP.Klasy
 {
+    /// <summary>
+    /// Klasa odpowiedzialna za logikę rozgrywki, to właśnie tu się większość dzieje
+    /// </summary>
     public static class Gra
     {
-        //trzymanie wszystkich surowcow w liscie, pozniejsze latwiejsze operowanie na nich za pomoca linq
+        /**Pole listy surowca, na której są wykonywane działania za pomocą linq*/
         private static List<Surowiec> Surowce = new List<Surowiec>()
         {
             new Surowiec(200, SurowiecEnum.Drewno),
@@ -19,7 +21,8 @@ namespace GRA_WJP.Klasy
             new Surowiec(200, SurowiecEnum.Jedzenie)
         };
 
-        //trzymanie wszystkich budynkow w liscie, pozniejsze latwiejsze operowanie na nich za pomoca linq
+        /**Pole listy Budynków (dziedziczących po interfejsie IBudynek), na której są wykonywane
+         * działania za pomocą linq*/
         private static List<IBudynek> Budynki = new List<IBudynek>()
         {
             new Dom(1, 200, 200, 160, 160, "Drewno", "Jedzenie"),
@@ -28,249 +31,298 @@ namespace GRA_WJP.Klasy
             new Kopalnia(1, 200, 200, 140, "Złoto")
         };
 
-        private static int Populacja = 100;
-        private static int Tura = 1;
-        private static int MaxTura = 50;
-        private static int ZdarzenieWczesniejsze=0;
-        private static int Zdarzenie=0;
+        /**Pole odpowiedzialne za ilość aktualnej populacji gracza*/
+        private static int populacja = 100;
+
+        /**Pole odpowiedzialne za numer tury rozgrywanej*/
+        private static int tura = 1;
+
+        /**Pole odpowiedzialne za maksymalną dostępną ilość tur na rozgrywkę*/
+        private static int maxTura = 50;
+
+        /**Pole odpowiedzialne za numer zdarzenia losowego, które miało miejsce ostatnio, aby 
+         zapobiec pojawianiu się tego samego zdarzenia 2 razy z rzędu*/
+        private static int zdarzenieWczesniejsze=0;
+
+        /**Pole odpowiedzialne za numer zdarzenia losowego, potrzebne do zapobiegania pojawiania
+         * się tego samego zdarzenia 2 razy z rzędu */
+        private static int zdarzenie = 0;
 
         //Start gry
-        private static int PopulacjaStartGry = 100;
-        private static int TuraStartGry = 1;
-        private static int LvlStartGry = 1;
-        private static int IloscStartGry = 100;
-        private static int PojemnoscStartGry = 200;
+        /**Pole odpowiedzialne za ilość populacji jaką gracz ma na start gry*/
+        private static int populacjaStartGry = 100;
 
-        //wysłanie informacji o stanie surowcow
+        /**Pole odpowiedzialne za numer tury na start gry*/
+        private static int turaStartGry = 1;
+
+        /**Pole odpowiedzialne za lvl budynku jaką gracz ma na start gry*/
+        private static int lvlStartGry = 1;
+
+        /**Pole odpowiedzialne za ilość surowca jaką gracz ma na start gry*/
+        private static int iloscStartGry = 100;
+
+        /**Pole odpowiedzialne za pojemność budynku jaką gracz ma na start gry*/
+        private static int pojemnoscStartGry = 200;
+
+        /**Funkcja odpowiedzialna za wysłanie listy surowców, aby można było wykonywać na niej
+         * działań*/
         public static List<Surowiec> SurowceList() => Surowce;
 
-        //Wyświetlanie okna klasy surowiec dla konretnego surowca (albo jedzenie, albo drewno itd.)
+       /**Funkcja odpowiedzialna za wyświetlenie okna zarządzania konkretnym surowcem*/
         public static void WyswietlSurowiec(IEkran IOknoRodzic, SurowiecEnum Surowiec)
         {
             new SurowiecForm(IOknoRodzic, Surowce.First(s => s.JakaNazwa() == Surowiec)).ShowDialog();
         }
 
-        //Wyświetlanie okna klasy budynek dla konretnego budynku (albo farma, albo tartak itd.)
+        /**Funkcja odpowiedzialna za wyświetlenie okna zarządzania konkretnym budynkiem*/
         public static void WyswietlBudynek(IEkran IOknoRodzic, BudynekEnum Budynek)
         {
             new BudynekForm(IOknoRodzic, Budynki.First(b => b.Nazwa == Budynek)).ShowDialog();
         }
 
-        //Funkcja do zwracania aktualnej ilości surowca (w celach jej wyświetlenia)
-        public static int IloscSurowca(SurowiecEnum surowiec) => Surowce.First(s => s.JakaNazwa() == surowiec).IleSurowiec();
+        /**Funkcja odpowiedzialna za wysłanie informacji o ilości konkretnego surowca*/
+        public static int IloscSurowca(SurowiecEnum surowiec) => Surowce.First(s => s.JakaNazwa()
+        == surowiec).IleSurowiec();
 
-        //Funkcja do zwracania aktualnego lvl danego budynku (w celach jej wyświetlenia)
-        public static int LVLBudynku(BudynekEnum Budynek) => Budynki.First(b => b.Nazwa == Budynek).Lvl;
+        /**Funkcja odpowiedzialna za zwracanie maksymalnej dostępnej pojemności konkretnego 
+         * surowca*/
+        public static int MaksSurowca(BudynekEnum Budynek) => 
+            Budynki.First(b => b.Nazwa == Budynek).pojemnosc;
 
-        //funkcja do zwracania maksymalnej (dla aktualnego lvl budynku) ilosci danego surowca (w celach jej wyświetlenia)
-        public static int MaksSurowca(BudynekEnum Budynek) => Budynki.First(b => b.Nazwa == Budynek).Pojemnosc;
-
-        //odejmowanie surowca dla np. funkcji "Upgrade()" 
+        /**Funkcja odpowiedzialna za odejmowanie konkretnej ilości od konkretnego surowca*/
         public static void OdejmijSurowiec(SurowiecEnum SurowiecEnum, int Ilosc)
         {
             Surowce.First(s => s.JakaNazwa() == SurowiecEnum).ZwiekszIloscSurowca(-Ilosc);
         }
-        public static void DodajSurowiec(SurowiecEnum SurowiecEnum, int Ilosc)
-        {
-            Surowce.First(s => s.JakaNazwa() == SurowiecEnum).ZwiekszIloscSurowca(Ilosc);
-        }
 
-
-        //Reset wartości gry, aby za każdym razem uruchomienia gry, zaczynać od nowa
+        /**Funkcja odpowiedzialna za resetowanie wartości gry*/
         public static void ResetGra()
         {
-            Surowce.ForEach(s => s.UstawIloscSurowca(IloscStartGry));
+            Surowce.ForEach(s => s.UstawIloscSurowca(iloscStartGry));
             Surowce.ForEach(s => s.UstawIloscPrzydzielonejPopulacji(0));
-            Budynki.ForEach(b => b.Lvl = LvlStartGry);
-            Budynki.ForEach(b => b.Pojemnosc = PojemnoscStartGry);
-            Populacja = PopulacjaStartGry;
-            Tura = TuraStartGry;
+            Budynki.ForEach(b => b.lvl = lvlStartGry);
+            Budynki.ForEach(b => b.pojemnosc = pojemnoscStartGry);
+            populacja = populacjaStartGry;
+            tura = turaStartGry;
         }
 
-        //dostęp do zmiennych prywatnych gry (enkapsulacja)
-        public static int IleDostepnaPopulacja() => Populacja - Surowce.Sum(s => s.IlePrzydzielonaPopulacja());
-        public static int IlePopulacja() => Populacja;
-        public static int KtoraTura() => Tura;
-        public static int IlemaxTur() => MaxTura;
+        /**Funkcja odpowiedzialna za przesłania informacji o dostępnej, niepracującej populacji*/
+        public static int IleDostepnaPopulacja() => populacja
+            - Surowce.Sum(s => s.IlePrzydzielonaPopulacja());
 
-        //sprawdzenie czy moze nastapic nastepna tura, jesli tak zwieksz nr tury o 1 i zwroc ze TAK nastepnatura
+        /**Funkcja odpowiedzialna za przesłanie informacji o ilości aktualnej populacji*/
+        public static int IlePopulacja() => populacja;
+
+        /**Funkcja odpowiedzialna za przesłania informacji o numerze aktualnej tury*/
+        public static int KtoraTura() => tura;
+
+        /**Funkcja odpowiedzialna za przesłania informacji o maksymalnej turze*/
+        public static int IlemaxTur() => maxTura;
+
+        /**Funkcja odpowiedzialna za sprawdzenie czy ma nastąpić następna tura, czy ma nastąpić 
+         * koniec gry*/
         public static bool NastepnaTura()
         {
-            if (!((Tura < MaxTura) && (StanGry() == MozliweKonceTuryEnum.NastepnaTura))) return false;
+            if (!((tura < maxTura) && (StanGry() == MozliweKonceTuryEnum.NastepnaTura))) return false;
 
-            Tura++;
+            tura++;
             return true;
         }
 
-        //funkcja obslugujaca zmiane surowca po zakonczeniu tury (2 zmienne)
-        public static int NastepnaTuraZmianaWartosciSurowca(SurowiecEnum Surowiec, BudynekEnum Budynek,
-            float WspolczynnikStrat, float WspolczynnikZysku)
+        /**Funkcja odpowiedzialna za zmianę ilości surowca na koniec tury, który przyjmuje 2 
+         * wartości współczynników*/
+        public static int NastepnaTuraZmianaWartosciSurowca(SurowiecEnum Surowiec,
+            BudynekEnum Budynek, float WspolczynnikStrat, float WspolczynnikZysku)
         {
-            var PoprzedniaWartoscSurowca = Surowce.First(s => s.JakaNazwa() == Surowiec).IleSurowiec();
-            var DodatkowaIloscSurowca = (int)((Surowce.First(s => s.JakaNazwa() == Surowiec).IlePrzydzielonaPopulacja()
-                * WspolczynnikZysku) - (WspolczynnikStrat * Populacja));
+            var poprzedniaWartoscSurowca = Surowce.First(s => s.JakaNazwa() == Surowiec)
+                .IleSurowiec();
 
-            var PojemnoscBudynku = Budynki.First(b => b.Nazwa == Budynek).Pojemnosc;
+            var dodatkowaIloscSurowca = (int)((Surowce.First(s => s.JakaNazwa() == Surowiec)
+                .IlePrzydzielonaPopulacja()* WspolczynnikZysku) - (WspolczynnikStrat * populacja));
 
-            if ((PoprzedniaWartoscSurowca + DodatkowaIloscSurowca) > PojemnoscBudynku)
+            var pojemnoscBudynku = Budynki.First(b => b.Nazwa == Budynek).pojemnosc;
+
+            if ((poprzedniaWartoscSurowca + dodatkowaIloscSurowca) > pojemnoscBudynku)
             {
-                Surowce.First(s => s.JakaNazwa() == Surowiec).UstawIloscSurowca(Budynki.First(b => b.Nazwa == Budynek).Pojemnosc);
-                return PojemnoscBudynku - PoprzedniaWartoscSurowca;
+                Surowce.First(s => s.JakaNazwa() == Surowiec).UstawIloscSurowca(
+                    Budynki.First(b => b.Nazwa == Budynek).pojemnosc);
+
+                return pojemnoscBudynku - poprzedniaWartoscSurowca;
             }
             else
             {
-                Surowce.First(s => s.JakaNazwa() == Surowiec).ZwiekszIloscSurowca(DodatkowaIloscSurowca);
-                if (Surowce.First(s => s.JakaNazwa() == Surowiec).IleSurowiec() < 0) Surowce.First(s => s.JakaNazwa() == Surowiec).
-                        UstawIloscSurowca(0);
-                return DodatkowaIloscSurowca;
+                Surowce.First(s => s.JakaNazwa() == Surowiec).ZwiekszIloscSurowca(
+                    dodatkowaIloscSurowca);
+
+                if (Surowce.First(s => s.JakaNazwa() == Surowiec).IleSurowiec() < 0) Surowce.
+                        First(s => s.JakaNazwa() == Surowiec).UstawIloscSurowca(0);
+
+                return dodatkowaIloscSurowca;
             }
         }
 
-        //funkcja obslugujaca zmiane surowca po zakonczeniu tury (1 zmienna (zloto nie ma wspolczynnika strat)) 
-        public static int NastepnaTuraZmianaWartosciSurowca(SurowiecEnum Surowiec, BudynekEnum Budynek,
-            float wspolczynnikZysku)
+        /**Funkcja odpowiedzialna za zmianę ilości surowca na koniec tura, który przyjmuje 1
+         * wartość współczynnika*/
+        public static int NastepnaTuraZmianaWartosciSurowca(SurowiecEnum Surowiec, 
+            BudynekEnum Budynek, float wspolczynnikZysku)
         {
-            var PoprzedniaWartoscSurowca = Surowce.First(s => s.JakaNazwa() == Surowiec).IleSurowiec();
-            var DodatkowaIloscSurowca = (int)((Surowce.First(s =>
+            var poprzedniaWartoscSurowca = Surowce.First(s => s.JakaNazwa() == Surowiec)
+                .IleSurowiec();
+
+            var dodatkowaIloscSurowca = (int)((Surowce.First(s =>
                 s.JakaNazwa() == Surowiec).IlePrzydzielonaPopulacja() * wspolczynnikZysku));
 
-            var PojemnoscBudynku = Budynki.First(b => b.Nazwa == Budynek).Pojemnosc;
+            var pojemnoscBudynku = Budynki.First(b => b.Nazwa == Budynek).pojemnosc;
 
-            if ((PoprzedniaWartoscSurowca + DodatkowaIloscSurowca) > Budynki.First(b => b.Nazwa == Budynek).Pojemnosc)
+            if ((poprzedniaWartoscSurowca + dodatkowaIloscSurowca) > Budynki
+                .First(b => b.Nazwa == Budynek).pojemnosc)
             {
-                Surowce.First(s => s.JakaNazwa() == Surowiec).UstawIloscSurowca(PojemnoscBudynku);
-                return PojemnoscBudynku - PoprzedniaWartoscSurowca;
+                Surowce.First(s => s.JakaNazwa() == Surowiec).UstawIloscSurowca(pojemnoscBudynku);
+                return pojemnoscBudynku - poprzedniaWartoscSurowca;
             }
             else
             {
-                Surowce.First(s => s.JakaNazwa() == Surowiec).ZwiekszIloscSurowca(DodatkowaIloscSurowca);
-                return DodatkowaIloscSurowca;
+                Surowce.First(s => s.JakaNazwa() == Surowiec)
+                    .ZwiekszIloscSurowca(dodatkowaIloscSurowca);
+                return dodatkowaIloscSurowca;
             }
         }
 
-        //funkcja odpowiedzialna za zmiane ilosci populacji po zakonczeniu tury (zalezy od ilosci jedzenia)
-        public static int NastepnaTuraZmianaWartosciPopulacji(SurowiecEnum Surowiec, int Wspolczynnik)
+        /**Funkcja odpowiedzialna za przyrost ilości populacji na koniec tury*/
+        public static int NastepnaTuraZmianaWartosciPopulacji(SurowiecEnum Surowiec, 
+            int Wspolczynnik)
         {
-            var PopulacjaPoprzednia = Populacja;
-            var DodatkowaPopulacja = (int)(Surowce.First(s => s.JakaNazwa() == Surowiec).IleSurowiec() * Wspolczynnik / 10);
-            var PojemnoscBudynku = Budynki.First(b => b.Nazwa == BudynekEnum.Dom).Pojemnosc;
+            var populacjaPoprzednia = populacja;
+            var dodatkowaPopulacja = (int)(Surowce.First(s => s.JakaNazwa() == Surowiec)
+                .IleSurowiec() * Wspolczynnik / 10);
 
-            if ((Populacja + DodatkowaPopulacja) > PojemnoscBudynku)
+            var pojemnoscBudynku = Budynki.First(b => b.Nazwa == BudynekEnum.Dom).pojemnosc;
+
+            if ((populacja + dodatkowaPopulacja) > pojemnoscBudynku)
             {
-                Populacja = PojemnoscBudynku;
-                return PojemnoscBudynku - PopulacjaPoprzednia;
+                populacja = pojemnoscBudynku;
+                return pojemnoscBudynku - populacjaPoprzednia;
             }
             else
             {
-                Populacja += DodatkowaPopulacja;
-                return DodatkowaPopulacja;
+                populacja += dodatkowaPopulacja;
+                return dodatkowaPopulacja;
             }
         }
 
-        //3 stany gry, wygrana, przegrana lub kolejna tura
+        /**Funkcja odpowiedzialna za zwracanie jaki ma nastąpić stan gry na zakończenie tury
+         Sprawdzenie warunków przegrania, wygrania gry lub czy ma nastąpić kolejna tura*/
         public static MozliweKonceTuryEnum StanGry()
         {
             if (IlePopulacja() >= 1000) return MozliweKonceTuryEnum.Zwyciestwo;
-            else if ((Tura >= MaxTura) ||
+            else if ((tura >= maxTura) ||
                 (Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Jedzenie).IleSurowiec() <= 0) ||
                 (Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Drewno).IleSurowiec() <= 0))
                 return MozliweKonceTuryEnum.Przegrana;
             else return MozliweKonceTuryEnum.NastepnaTura;
         }
 
-        //generowanie i obsluga zdarzenia losowego, najpierw losowanie 25% na wystapienia zdarzenia
-        //potem losowanie zdarzenia 1 z 5 dostepnych
-        //zwraca string zawierajacego opis zdarzenia, ktory jest wypisywany w odpowiednim labelu
-        //string wpisany prosto w kod
-        // <3 LINQ
+        /**Funkcja odpowiedzialna za generowanie i obsługę losowych zdarzeń z ustawionym 
+         * prawdopodobieństwem.
+         * Zdarzenie jest również generowane losowo*/
         public static string ZdarzenieLosowe()
         {
-            if (Tura < 5 || Tura > 45)
+            if (tura < 5 || tura > 45)
                 return null;
 
-            var Szansa = new Random().Next(1, 100);
-            if (Szansa > 15)
+            var szansa = new Random().Next(1, 1000);
+            if (szansa > 150)
                 return null;
             do
             {
-                Zdarzenie = new Random().Next(1, 6);
+                zdarzenie = new Random().Next(1, 6);
             }
-            while (ZdarzenieWczesniejsze == Zdarzenie);
-            ZdarzenieWczesniejsze = Zdarzenie;
-            switch (Zdarzenie)
+            while (zdarzenieWczesniejsze == zdarzenie);
+            zdarzenieWczesniejsze = zdarzenie;
+            switch (zdarzenie)
             {      
                 case 1:
                     //Spalony Tartak
-                    var TartakLvl = Budynki.First(b => b.Nazwa == BudynekEnum.Tartak).Lvl;
+                    var TartakLvl = Budynki.First(b => b.Nazwa == BudynekEnum.Tartak).lvl;
                     if (TartakLvl > 1)
                     {
-                        Budynki.First(b => b.Nazwa == BudynekEnum.Tartak).Lvl--;
-                        Budynki.First(b => b.Nazwa == BudynekEnum.Tartak).Pojemnosc -=
-                        Budynki.First(b => b.Nazwa == BudynekEnum.Tartak).PojemnoscLvl;
+                        Budynki.First(b => b.Nazwa == BudynekEnum.Tartak).lvl--;
+                        Budynki.First(b => b.Nazwa == BudynekEnum.Tartak).pojemnosc -=
+                        Budynki.First(b => b.Nazwa == BudynekEnum.Tartak).pojemnoscLvl;
                     }
 
                     Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Drewno).UstawIloscSurowca(
-                        (int)(Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Drewno).IleSurowiec() * 0.75));
+                        (int)(Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Drewno)
+                        .IleSurowiec() * 0.75));
 
-                    Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Drewno).UstawIloscPrzydzielonejPopulacji((int)(
-                         Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Drewno).IlePrzydzielonaPopulacja() * 0.85));
+                    Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Drewno)
+                        .UstawIloscPrzydzielonejPopulacji((int)(Surowce.First(s => s.JakaNazwa() 
+                        == SurowiecEnum.Drewno).IlePrzydzielonaPopulacja() * 0.85));
 
                     return "Pożar w Tartaku \n \nTwój Tartak stanął w płomieniach:\n Tracisz 1 lvl budynku \nSpłoneło 30% zgromadzonego drewna." +
                         " \nPrzestaje pracować 15% ludzi \nwcześniej pracujących w Tartaku";
 
                 case 2:
                     //Spalona Farma
-                    var FarmaLvl = Budynki.First(b => b.Nazwa == BudynekEnum.Farma).Lvl;
+                    var FarmaLvl = Budynki.First(b => b.Nazwa == BudynekEnum.Farma).lvl;
                     if (FarmaLvl > 1)
                     {
-                        Budynki.First(b => b.Nazwa == BudynekEnum.Farma).Lvl--;
-                        Budynki.First(b => b.Nazwa == BudynekEnum.Farma).Pojemnosc -=
-                            Budynki.First(b => b.Nazwa == BudynekEnum.Farma).PojemnoscLvl;
+                        Budynki.First(b => b.Nazwa == BudynekEnum.Farma).lvl--;
+                        Budynki.First(b => b.Nazwa == BudynekEnum.Farma).pojemnosc -=
+                        Budynki.First(b => b.Nazwa == BudynekEnum.Farma).pojemnoscLvl;
                     }
 
                     Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Jedzenie).UstawIloscSurowca(
-                        (int)(Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Jedzenie).IleSurowiec() * 0.75));
+                        (int)(Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Jedzenie)
+                        .IleSurowiec() * 0.75));
 
-                    Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Jedzenie).UstawIloscPrzydzielonejPopulacji((int)(
-                         Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Jedzenie).IlePrzydzielonaPopulacja() * 0.85));
+                    Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Jedzenie)
+                        .UstawIloscPrzydzielonejPopulacji((int)(Surowce.First(s => s.JakaNazwa() 
+                        == SurowiecEnum.Jedzenie).IlePrzydzielonaPopulacja() * 0.85));
 
                     return "Pożar na Farmie \n\nNa twojej Farmie wybuchł ogień:\nTracisz 1 lvl budynku \nSpłoneło 30% zgromadzonego jedzenie." +
                         " \nPrzestaje pracować 15% ludzi \nwcześniej pracujących na Farmie";
                 case 3:
                     //Spalona Kopalnia
-                    var KopalniaLvl = Budynki.First(b => b.Nazwa == BudynekEnum.Kopalnia).Lvl;
+                    var KopalniaLvl = Budynki.First(b => b.Nazwa == BudynekEnum.Kopalnia).lvl;
                     if (KopalniaLvl > 1)
                     {
-                        Budynki.First(b => b.Nazwa == BudynekEnum.Kopalnia).Lvl--;
-                        Budynki.First(b => b.Nazwa == BudynekEnum.Kopalnia).Pojemnosc -=
-                        Budynki.First(b => b.Nazwa == BudynekEnum.Kopalnia).PojemnoscLvl;
+                        Budynki.First(b => b.Nazwa == BudynekEnum.Kopalnia).lvl--;
+                        Budynki.First(b => b.Nazwa == BudynekEnum.Kopalnia).pojemnosc -=
+                        Budynki.First(b => b.Nazwa == BudynekEnum.Kopalnia).pojemnoscLvl;
                     }
 
                     Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Zloto).UstawIloscSurowca(
-                        (int)(Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Zloto).IleSurowiec() * 0.75));
+                        (int)(Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Zloto)
+                        .IleSurowiec() * 0.75));
 
-                    Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Zloto).UstawIloscPrzydzielonejPopulacji((int)(
-                         Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Zloto).IlePrzydzielonaPopulacja() * 0.85));
+                    Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Zloto)
+                        .UstawIloscPrzydzielonejPopulacji((int)(Surowce.First(s => s.JakaNazwa()
+                        == SurowiecEnum.Zloto).IlePrzydzielonaPopulacja() * 0.85));
 
                     return "Pożar w Kopalni \n\nTwoja Kopalnia stanęła w płomieniach:\nTracisz 1 lvl budynku \nSpłoneło 30% zgromadzonego złota." +
                         " \nPrzestaje pracować 15% ludzi \nwcześniej pracujących w Kopalni";
                 case 4:
                     //Klęska głodu
                     Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Jedzenie).UstawIloscSurowca(
-                        (int)(Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Jedzenie).IleSurowiec() * 0.5));
+                        (int)(Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Jedzenie)
+                        .IleSurowiec() * 0.5));
 
                     return "Klęska Głodu \n\nNawiedziła cię klęska głodu:\nTracisz 50% zebranej żywności";
 
                 case 5:
                     //Atak
                     Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Zloto).UstawIloscSurowca(
-                         (int)(Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Zloto).IleSurowiec() * 0.85));
+                         (int)(Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Zloto)
+                         .IleSurowiec() * 0.85));
 
                     Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Jedzenie).UstawIloscSurowca(
-                         (int)(Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Jedzenie).IleSurowiec() * 0.85));
+                         (int)(Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Jedzenie)
+                         .IleSurowiec() * 0.85));
 
                     Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Drewno).UstawIloscSurowca(
-                        (int)(Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Drewno).IleSurowiec() * 0.85));
+                        (int)(Surowce.First(s => s.JakaNazwa() == SurowiecEnum.Drewno)
+                        .IleSurowiec() * 0.85));
 
                     return "Grabież \n\nTwoja osada została splądrowana:\nTracisz po 15% każdego surowca";
             }
